@@ -1,4 +1,4 @@
-import { addDays } from "date-fns";
+import { addDays } from 'date-fns';
 
 /**
  * ISString: as toISOString, but removes microseconds from UTC
@@ -6,8 +6,8 @@ import { addDays } from "date-fns";
  */
 function ISODateString(date) {
   const yr = date.getFullYear();
-  const mo = String(date.getMonth() + 1).padStart(2, "0");
-  const dt = String(date.getDate()).padStart(2, "0");
+  const mo = String(date.getMonth() + 1).padStart(2, '0');
+  const dt = String(date.getDate()).padStart(2, '0');
   return `${yr}-${mo}-${dt}T00:00:00Z`;
 }
 
@@ -18,7 +18,7 @@ function ISODateString(date) {
 function ISOString(date, allDay) {
   return allDay
     ? ISODateString(date)
-    : date.toISOString().replace(/\.0+Z$/, "Z");
+    : date.toISOString().replace(/\.0+Z$/, 'Z');
 }
 
 /**
@@ -31,7 +31,7 @@ export function toUTCStrings(time) {
   const result = {
     ...time,
     start: ISOString(start, allDay),
-    end: end && ISOString(allDay ? addDays(end, 1) : end, allDay)
+    end: end && ISOString(allDay ? addDays(end, 1) : end, allDay),
   };
   return result;
 }

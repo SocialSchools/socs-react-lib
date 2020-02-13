@@ -1,4 +1,4 @@
-import { subDays } from "date-fns";
+import { subDays } from 'date-fns';
 
 /**
  * convert utc string to Date object
@@ -6,7 +6,7 @@ import { subDays } from "date-fns";
  * @param {*} allDay
  */
 function stringToTime(str, allDay) {
-  if (typeof str === "string" && allDay) {
+  if (typeof str === 'string' && allDay) {
     const [yr, mo, dt] = str.split(/\D+/, 3).map(Number);
     return new Date(yr, mo - 1, dt); // month is 0-based
   }
@@ -21,7 +21,7 @@ function stringToTime(str, allDay) {
 function fromUTCStrings(time) {
   let { allDay } = time;
   if (allDay === undefined) {
-    const midnight = "T00:00:00Z";
+    const midnight = 'T00:00:00Z';
     allDay = time.start.endsWith(midnight) && time.end.endsWith(midnight);
   }
   const start = stringToTime(time.start, allDay);
@@ -33,7 +33,7 @@ function fromUTCStrings(time) {
     ...time,
     start,
     end: time.end && (end < start ? start : end),
-    allDay
+    allDay,
   };
 }
 

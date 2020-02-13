@@ -1,4 +1,4 @@
-import { endOfDay } from "date-fns";
+import { endOfDay } from 'date-fns';
 
 function getCalendarEndDate(obj) {
   const date = obj.end;
