@@ -1,65 +1,38 @@
- <div align="center">
- <img align="center" width="180" src="https://franciscohodge.com/project-pages/js-library-boilerplate/images/JSLB2Basic2.png" />
-  <h2>Javascript Library Boilerplate Basic</h2>
-  <blockquote>Minimal Library Starter Kit for your Javascript projects</blockquote>
- 
- <a href="https://github.com/hodgef/js-library-boilerplate-basic/actions"><img alt="Build Status" src="https://github.com/hodgef/js-library-boilerplate-basic/workflows/Build/badge.svg?color=green" /></a> <a href="https://github.com/hodgef/js-library-boilerplate-basic/actions"> <img alt="Publish Status" src="https://github.com/hodgef/js-library-boilerplate-basic/workflows/Publish/badge.svg?color=green" /></a> <img src="https://img.shields.io/david/hodgef/js-library-boilerplate-basic.svg" /> <a href="https://david-dm.org/hodgef/js-library-boilerplate-basic?type=dev"><img src="https://img.shields.io/david/dev/hodgef/js-library-boilerplate-basic.svg" /></a> <img src="https://api.dependabot.com/badges/status?host=github&repo=hodgef/js-library-boilerplate-basic" />
- 
-<strong>This is a basic library boilerplate. For a more robust alternative, check out [js-library-boilerplate](https://github.com/hodgef/js-library-boilerplate).</strong>
+# event-times
+Convert to/from server time
 
-</div>
-
-## ⭐️ Features
-
-- Webpack 4
-- Babel 7
-- UMD exports, so your library works everywhere.
-- Jest unit testing
-- Daily [dependabot](https://dependabot.com) dependency updates
-
-## 📦 Getting Started
+Converts events times from server as UTC string to JS Date objects
 
 ```
-git clone https://github.com/hodgef/js-library-boilerplate-basic.git myLibrary
-npm install
+server-event: {
+  start: <string>,
+  end: <string>,
+  allDay: <boolan>
+}
 ```
-
-## 💎 Customization
-
-> Before shipping, make sure to:
-1. Edit `LICENSE` file
-2. Edit `package.json` information (These will be used to generate the headers for your built files)
-3. Edit `library: "MyLibrary"` with your library's export name in `./webpack.config.js`
-
-## 🚀 Deployment
-1. `npm publish`
-2. Your users can include your library as usual
-
-### npm
+If `allDay`, then `end` is the end of the last day/the beginning of the next day, so for a single-day event this looks like:
 ```
-import MyLibrary from 'my-library';
-let libraryInstance = new MyLibrary();
-...
+{
+   start: "2020-04-10T00:00:00Z",
+   end: "2020-04-11T00:00:00Z",
+   allDay: true
+}
 ```
+If `allDay` is `undefined`, it will be set to `true` of both `start` and `end` end with `T00:00:00Z`.
 
-### self-host/cdn
+In JS:
 ```
-<script src="build/index.js"></script>
-
-let MyLibrary = window.MyLibrary.default;
-let libraryInstance = new MyLibrary();
-...
+browser-event: {
+  start: <Date>,
+  end: <Date>,
+  allDay: <boolean>
+}
 ```
-
-> **Note:** In this minimal version, any images and css files you import will be added to the js bundle. If you want them as separate files, you can use [js-library-boilerplate](https://github.com/hodgef/js-library-boilerplate) or edit the Webpack config accordingly.
-
-## ✅ Libraries built with this boilerplate
-
-> Made a library using this starter kit? Share it here by [submitting a pull request](https://github.com/hodgef/js-library-boilerplate-basic/pulls)!
-
-- [Canvas-Txt](https://github.com/geongeorge/Canvas-Txt) - A library to print multiline text on HTML5 canvas with better line breaks and alignments
-- [moon-phase-widget](https://github.com/g00dv1n/moon-phase-widget) - Super tiny javascript library to add awesome moon phase widget to your website
-- [simple-keyboard-autocorrect](https://github.com/hodgef/simple-keyboard-autocorrect) - Autocorrect module for simple-keyboard
-- [simple-keyboard-input-mask](https://github.com/hodgef/simple-keyboard-input-mask) - Input mask module for simple-keyboard
-- [simple-keyboard-key-navigation](https://github.com/hodgef/simple-keyboard-key-navigation) - Key navigation module for simple-keyboard
-- [swipe-keyboard](https://github.com/hodgef/swipe-keyboard) - Swype type keyboard module for simple-keyboard
+Since many JS and React components show the beginning of the last day for `end` if the event is `allDay`, one day has to be subtracted from `end`:
+```
+{
+   start: "2020-04-10T00:00:00Z",
+   end: "2020-04-10T00:00:00Z",
+   allDay: true
+}
+```
