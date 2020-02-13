@@ -1,6 +1,6 @@
 /*!
  * 
- *   event-times v1.0.0
+ *   socs-event-times v1.0.0
  *   https://github.com/SocialSchools/event-times
  * 
  *   Copyright (c) Harry Oosterveen
