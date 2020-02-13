@@ -33,8 +33,8 @@ describe('toUTCString', () => {
       allDay: false,
     };
     expect(fromUTCStrings(event)).toEqual({
-      start: new Date(2020, 3, 1, 12, 30),
-      end: new Date(2020, 3, 2, 13, 30),
+      start: new Date('2020-04-01T10:30:00Z'),
+      end: new Date('2020-04-02T11:30:00Z'),
       allDay: false,
     });
   });
@@ -43,7 +43,7 @@ describe('toUTCString', () => {
       start: '2020-04-01T10:30:00Z',
       allDay: false,
     };
-    expect(fromUTCStrings(event)).toEqual({ start: new Date(2020, 3, 1, 12, 30), allDay: false });
+    expect(fromUTCStrings(event)).toEqual({ start: new Date('2020-04-01T10:30:00Z'), allDay: false });
   });
   it('Converts start/end from UTC string if times are both midnight', () => {
     const event = {
@@ -62,8 +62,8 @@ describe('toUTCString', () => {
       end: '2020-04-02T11:30:00Z',
     };
     expect(fromUTCStrings(event)).toEqual({
-      start: new Date(2020, 3, 1, 12, 30),
-      end: new Date(2020, 3, 2, 13, 30),
+      start: new Date('2020-04-01T10:30:00Z'),
+      end: new Date('2020-04-02T11:30:00Z'),
       allDay: false,
     });
   });
