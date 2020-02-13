@@ -1,7 +1,7 @@
 {
-  "name": "event-times",
+  "name": "socs-event-times",
   "version": "1.0.0",
-  "description": "Convert to/from server time",
+  "description": "Handle event times for Social Schools",
   "main": "build/index.js",
   "scripts": {
     "build": "webpack",
@@ -16,11 +16,6 @@
   "author": "Harry Oosterveen",
   "license": "MIT",
   "homepage": "https://github.com/SocialSchools/event-times",
-  "keywords": [
-    "library",
-    "starter",
-    "es6"
-  ],
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.4",
