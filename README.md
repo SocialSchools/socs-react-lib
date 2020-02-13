@@ -1,5 +1,37 @@
 # event-times
-Convert to/from server time
+
+## How to use
+
+As soon as you fetch data from the server, convert dates using the `fromUTCStrings` function:
+
+```
+import { fromUTCStrings} from 'socs-event-times';
+...
+const event = fromUTCStrings(fetchSingleEvent());
+const events = fetchEventsFromServer().map(fromUTCStrings);
+```
+
+When sending an event to the server, use `toUTCStrings`:
+```
+import { toUTCStrings} from 'socs-event-times';
+...
+request({
+    method: 'POST',
+    url: myPostUrl,
+    body: JSON.stringify(toUTCStrings(event)),
+  }
+)
+```
+When using react-big-calendar, use the `getCalendarEndDate` function:
+```
+import { getCalendarEndDate } from 'socs-event-times';
+...
+  <Calendar endAccessor={getCalendarEndDate} ... />
+
+```
+
+
+## Convert to/from server time
 
 Converts events times from server as UTC string to JS Date objects
 
@@ -36,3 +68,9 @@ Since many JS and React components show the beginning of the last day for `end` 
    allDay: true
 }
 ```
+
+## big-calendar issues
+
+react-big-calendar is not consistent in this: for showing an event, end is supposed to be the start of the day after (https://codesandbox.io/s/7oj4w4vzlq), but when creating an event by dragging in month view, end is the start of the last day. In addition, there is the Monday-bug (intljusticemission/react-big-calendar: Issue #680). It seems to work fine if the end of the event is set to the endOfDay of the last day.
+
+Library based on https://github.com/hodgef/js-library-boilerplate-basic
