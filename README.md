@@ -1,5 +1,17 @@
 # event-times
 
+## How to install
+
+```
+npm install --save SocialSchools/socs-event-times
+```
+
+or
+
+```
+yarn add SocialSchools/socs-event-times
+```
+
 ## How to use
 
 As soon as you fetch data from the server, convert dates using the `fromUTCStrings` function:
@@ -7,7 +19,9 @@ As soon as you fetch data from the server, convert dates using the `fromUTCStrin
 ```
 import { fromUTCStrings} from 'socs-event-times';
 ...
+// For a single event
 const event = fromUTCStrings(fetchSingleEvent());
+// For a list of events
 const events = fetchEventsFromServer().map(fromUTCStrings);
 ```
 
