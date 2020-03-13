@@ -45,6 +45,13 @@ describe('toUTCString', () => {
     };
     expect(fromUTCStrings(event)).toEqual({ start: new Date('2020-04-01T10:30:00Z'), allDay: false });
   });
+  it('Converts start from UTC string for allDay event with open end', () => {
+    const event = {
+      start: '2020-04-01T00:00:00Z',
+      allDay: true,
+    };
+    expect(fromUTCStrings(event)).toEqual({ start: new Date(2020, 3, 1), allDay: true });
+  });
   it('Converts start/end from UTC string if times are both midnight', () => {
     const event = {
       start: '2020-04-01T00:00:00Z',
