@@ -33,6 +33,7 @@
     "eslint-plugin-react-hooks": "^1.7.0",
     "file-loader": "^5.0.2",
     "jest": "^25.1.0",
+    "minimist": "^1.2.5",
     "prettier": "^1.19.1",
     "prettier-webpack-plugin": "^1.2.0",
     "style-loader": "^1.1.3",
