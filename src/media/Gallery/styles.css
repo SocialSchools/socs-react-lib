@@ -1,0 +1,24 @@
+
+body.noScroll { /* ...or body.dialogShowing */
+  overflow: hidden;
+}
+
+.lb-content {
+  transition: transform 0.3s ease;
+}
+
+.swipe-up {
+  transform: translate(0, -10px);
+}
+
+.swipe-down {
+  transform: translate(0, 10px);
+}
+
+.swipe-left {
+  transform: translate(-10px, 0);
+}
+
+.swipe-right {
+  transform: translate(10px, 0);
+}
