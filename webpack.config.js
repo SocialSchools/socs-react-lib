@@ -33,11 +33,13 @@ module.exports = {
     alias: {
       react: path.resolve('node_modules/react'),
       'react-dom': path.resolve('node_modules/react-dom'),
+      'react-router-dom': path.resolve('node_modules/react-router-dom'),
     },
   },
   externals: {
     react: 'react',
     'react-dom': 'react-dom',
+    'react-router-dom': 'router-dom',
   },
   module: {
     rules: [

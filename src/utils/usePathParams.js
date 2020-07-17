@@ -24,7 +24,6 @@ function usePathParams() {
     const parts = pathname.split('/', 2);
     Object.keys(par).forEach((key) => {
       const val = par[key];
-      console.log(parts, key, val);
       if (val && typeof val === 'number') {
         parts.push(key, val);
       } else if (val) {
