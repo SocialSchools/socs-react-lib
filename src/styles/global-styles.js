@@ -39,6 +39,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    background-color: ${(p) => p.theme.contentBg};
     height: 100%;
     width: 100%;
     font-family: Ubuntu, Helvetica, Arial, sans-serif;
@@ -51,6 +52,15 @@ const GlobalStyle = createGlobalStyle`
       display: flex;
       flex-direction: column;
     }
+  }
+
+  // Override default primary color
+  .text-primary.text-primary {
+    color: ${(p) => p.theme.brandPrimary};
+  }
+
+  .shaded {
+    background-color: ${(props) => (props.theme.backgroundImage ? 'transparent' : props.theme.contentBg)};
   }
 
   .no-overflow {
