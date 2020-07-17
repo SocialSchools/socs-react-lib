@@ -34,12 +34,14 @@ module.exports = {
       react: path.resolve('node_modules/react'),
       'react-dom': path.resolve('node_modules/react-dom'),
       'react-router-dom': path.resolve('node_modules/react-router-dom'),
+      'styled-components': path.resolve('node_modules/styled-components'),
     },
   },
   externals: {
     react: 'react',
     'react-dom': 'react-dom',
     'react-router-dom': 'react-router-dom',
+    'styled-components': 'styled-components',
   },
   module: {
     rules: [
