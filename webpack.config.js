@@ -35,6 +35,10 @@ module.exports = {
       'react-dom': path.resolve('node_modules/react-dom'),
     },
   },
+  externals: {
+    react: 'react',
+    'react-dom': 'react-dom',
+  },
   module: {
     rules: [
       {
