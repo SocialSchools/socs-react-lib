@@ -150,30 +150,6 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  // Override default primary color
-  .text-primary.text-primary {
-    color: ${(p) => p.theme.brandPrimary};
-  }
-
-  .shaded {
-    background-color: ${(props) => (props.theme.backgroundImage ? 'transparent' : props.theme.contentBg)};
-  }
-
-  .dropdown-menu {
-    border-radius: ${(p) => p.theme.panelBorderRadius};
-  }
-  
-  .bs-open {
-    background-color: ${(p) => p.theme.contentBg};
-    color: ${(p) => p.theme.brandPrimary};
-    border-color: transparent;
-    box-shadow: none;
-  }
-
-  .panel.border {
-    border: 1px solid ${(p) => p.theme.inputBorder};
-  }
-
   @media not print {
     .visible-print {
       display: none !important;
