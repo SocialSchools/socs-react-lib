@@ -1,4 +1,3 @@
-/* global describe it expect */
 import { getCalendarEndDate } from '../src/index';
 
 describe('getCalendarEndDate', () => {

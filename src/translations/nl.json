@@ -1,0 +1,8 @@
+{
+  "app.components.Preview.processing": "Bezig met verwerken...",
+  "app.components.Preview.slowVideos": "Het verwerken van video's kan even duren",
+  "app.components.UserText.embed": "Ja. Video's van {provider} worden op de site afgespeeld als je er op klikt.",
+  "app.components.UserText.explain": "Om ingesloten video's op deze site af te spelen plaatst YouTube cookies op je computer. Ga je hiermee akkoord?",
+  "app.components.UserText.header": "Cookies voor YouTube video's",
+  "app.components.UserText.link": "Nee. Als je klikt op een videoplaatje, wordt de video geopend op YouTube in een nieuwe tab of venster."
+}

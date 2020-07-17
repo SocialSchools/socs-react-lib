@@ -1,0 +1,382 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?r7jhfu');
+  src:  url('fonts/icomoon.eot?r7jhfu#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.woff2?r7jhfu') format('woff2'),
+    url('fonts/icomoon.ttf?r7jhfu') format('truetype'),
+    url('fonts/icomoon.woff?r7jhfu') format('woff'),
+    url('fonts/icomoon.svg?r7jhfu#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ss-flash:before {
+  content: "\e901";
+}
+.ss-socs:before {
+  content: "\e900";
+}
+.ss-file-o:before {
+  content: "\f016";
+}
+.ss-align-left:before {
+  content: "\f036";
+}
+.ss-check:before {
+  content: "\f046";
+}
+.ss-chevron-right:before {
+  content: "\f054";
+}
+.ss-eye-open:before {
+  content: "\f06e";
+}
+.ss-eye-close:before {
+  content: "\f070";
+}
+.ss-resize-vertical:before {
+  content: "\f07d";
+}
+.ss-external-link:before {
+  content: "\f08e";
+}
+.ss-check-empty:before {
+  content: "\f096";
+}
+.ss-twitter:before {
+  content: "\f099";
+}
+.ss-facebook:before {
+  content: "\f09a";
+}
+.ss-filter:before {
+  content: "\f0b0";
+}
+.ss-copy:before {
+  content: "\f0c5";
+}
+.ss-file-text-o:before {
+  content: "\f0f6";
+}
+.ss-smile:before {
+  content: "\f118";
+}
+.ss-question:before {
+  content: "\f128";
+}
+.ss-ellipsis-horizontal:before {
+  content: "\f141";
+}
+.ss-ellipsis-vertical:before {
+  content: "\f142";
+}
+.ss-check-sign:before {
+  content: "\f14a";
+}
+.ss-sort-by-alphabet:before {
+  content: "\f15d";
+}
+.ss-sort-by-attributes-alt:before {
+  content: "\f161";
+}
+.ss-archive:before {
+  content: "\f187";
+}
+.ss-bug:before {
+  content: "\f188";
+}
+.ss-file-pdf-o:before {
+  content: "\f1c1";
+}
+.ss-file-word-o:before {
+  content: "\f1c2";
+}
+.ss-file-excel-o:before {
+  content: "\f1c3";
+}
+.ss-file-powerpoint-o:before {
+  content: "\f1c4";
+}
+.ss-file-audio-o:before {
+  content: "\f1c7";
+}
+.ss-facebook-square:before {
+  content: "\f230";
+}
+.ss-clone:before {
+  content: "\f24d";
+}
+.ss-plus:before {
+  content: "\2b";
+}
+.ss-minus:before {
+  content: "\2d";
+}
+.ss-info:before {
+  content: "\2139";
+}
+.ss-refresh:before {
+  content: "\21bb";
+}
+.ss-home:before {
+  content: "\2302";
+}
+.ss-print:before {
+  content: "\2399";
+}
+.ss-clock:before {
+  content: "\23f2";
+}
+.ss-delete:before {
+  content: "\2421";
+}
+.ss-stop:before {
+  content: "\25a0";
+}
+.ss-play:before {
+  content: "\25b6";
+}
+.ss-directionright:before {
+  content: "\25b9";
+}
+.ss-navigateright:before {
+  content: "\25bb";
+}
+.ss-dropdown:before {
+  content: "\25be";
+}
+.ss-navigateleft:before {
+  content: "\25c5";
+}
+.ss-target:before {
+  content: "\25ce";
+}
+.ss-emptyheart:before {
+  content: "\2661";
+}
+.ss-heart:before {
+  content: "\2665";
+}
+.ss-settings:before {
+  content: "\2699";
+}
+.ss-alert:before {
+  content: "\26a0";
+}
+.ss-mail:before {
+  content: "\2709";
+}
+.ss-write:before {
+  content: "\270e";
+}
+.ss-draw:before {
+  content: "\270f";
+}
+.ss-checkmark:before {
+  content: "\2713";
+}
+.ss-help:before {
+  content: "\2753";
+}
+.ss-down:before {
+  content: "\2b07";
+}
+.ss-leftright:before {
+  content: "\2b0c";
+}
+.ss-scaleup:before {
+  content: "\e070";
+}
+.ss-trash:before {
+  content: "\e0d0";
+}
+.ss-checkclipboard:before {
+  content: "\e2b3";
+}
+.ss-usergroup:before {
+  content: "\e400";
+}
+.ss-adduser:before {
+  content: "\e401";
+}
+.ss-deleteuser:before {
+  content: "\e404";
+}
+.ss-userprofile:before {
+  content: "\e406";
+}
+.ss-suitcase:before {
+  content: "\e420";
+}
+.ss-luggage:before {
+  content: "\e421";
+}
+.ss-emptycart:before {
+  content: "\e507";
+}
+.ss-horizontalbarchart:before {
+  content: "\e574";
+}
+.ss-analytics:before {
+  content: "\e575";
+}
+.ss-location:before {
+  content: "\e6d0";
+}
+.ss-database:before {
+  content: "\e7a0";
+}
+.ss-pause:before {
+  content: "\e8a0";
+}
+.ss-playvideo:before {
+  content: "\e8a1";
+}
+.ss-index:before {
+  content: "\e902";
+}
+.ss-rows:before {
+  content: "\e9a1";
+}
+.ss-thumbnails:before {
+  content: "\e9a3";
+}
+.ss-smartphone:before {
+  content: "\ea02";
+}
+.ss-download:before {
+  content: "\eb01";
+}
+.ss-upload:before {
+  content: "\eb41";
+}
+.ss-reload:before {
+  content: "\eb82";
+}
+.ss-connection:before {
+  content: "\eb85";
+}
+.ss-import:before {
+  content: "\ec08";
+}
+.ss-textfile:before {
+  content: "\ec19";
+}
+.ss-list:before {
+  content: "\ed50";
+}
+.ss-action:before {
+  content: "\ee00";
+}
+.ss-logout:before {
+  content: "\ee02";
+}
+.ss-stethoscope:before {
+  content: "\f4b4";
+}
+.ss-navigateup:before {
+  content: "\f500";
+}
+.ss-navigatedown:before {
+  content: "\f501";
+}
+.ss-picture:before {
+  content: "\1f304";
+}
+.ss-earth:before {
+  content: "\1f30e";
+}
+.ss-globe:before {
+  content: "\1f310";
+}
+.ss-view:before {
+  content: "\1f440";
+}
+.ss-user:before {
+  content: "\1f464";
+}
+.ss-users:before {
+  content: "\1f465";
+}
+.ss-chat:before {
+  content: "\1f4ac";
+}
+.ss-folder:before {
+  content: "\1f4c1";
+}
+.ss-openfolder:before {
+  content: "\1f4c2";
+}
+.ss-file:before {
+  content: "\1f4c4";
+}
+.ss-calendar:before {
+  content: "\1f4c5";
+}
+.ss-upwardslinechart:before {
+  content: "\1f4c8";
+}
+.ss-attach:before {
+  content: "\1f4ce";
+}
+.ss-compose:before {
+  content: "\1f4dd";
+}
+.ss-phone:before {
+  content: "\1f4de";
+}
+.ss-camera:before {
+  content: "\1f4f7";
+}
+.ss-search:before {
+  content: "\1f50e";
+}
+.ss-lock:before {
+  content: "\1f512";
+}
+.ss-notifications:before {
+  content: "\1f514";
+}
+.ss-notificationsdisabled:before {
+  content: "\1f515";
+}
+.ss-link:before {
+  content: "\1f517";
+}
+.ss-ban:before {
+  content: "\1f6ab";
+}
+.ss-spinner1:before {
+  content: "\e97a";
+}
+.ss-spinner2:before {
+  content: "\e97b";
+}
+.ss-spinner3:before {
+  content: "\e97c";
+}
+.ss-google:before {
+  content: "\ea88";
+}
+.ss-appleinc:before {
+  content: "\eabe";
+}
+.ss-windows8:before {
+  content: "\eac2";
+}

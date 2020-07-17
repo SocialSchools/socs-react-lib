@@ -1,0 +1,8 @@
+{
+  "app.components.Preview.processing": "Processing...",
+  "app.components.Preview.slowVideos": "Processing videos may take a short while",
+  "app.components.UserText.embed": "Yes. Videos from YouTube will be played on this site when you click on them.",
+  "app.components.UserText.explain": "In order to play embedded videos on this site, YouTube will place cookies on your computer. Do you agree that these cookies are placed?",
+  "app.components.UserText.header": "Cookies for YouTube Videos",
+  "app.components.UserText.link": "No. When you click on a video image, the video will be opened on YouTube in a separate tab or window."
+}
