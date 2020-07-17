@@ -39,7 +39,6 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: ${(p) => p.theme.contentBg};
     height: 100%;
     width: 100%;
     font-family: Ubuntu, Helvetica, Arial, sans-serif;
