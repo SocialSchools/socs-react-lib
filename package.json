@@ -7,7 +7,7 @@
     "build": "webpack",
     "test": "jest",
     "prepare": "npm run build",
-    "trypublish": "npm publish || true"
+    "deploy": "npm run build && git commit -a -m 'New build' && git push"
   },
   "repository": {
     "type": "git",
