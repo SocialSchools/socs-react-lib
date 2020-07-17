@@ -29,9 +29,11 @@ module.exports = {
     library: 'MyLibrary',
     libraryTarget: 'umd',
   },
-  externals: {
-    react: 'React',
-    'react-dom': 'ReactDOM',
+  resolve: {
+    alias: {
+      react: path.resolve('node_modules/react'),
+      'react-dom': path.resolve('node_modules/react-dom'),
+    },
   },
   module: {
     rules: [
