@@ -7,7 +7,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import detectMobile from '../../../utils/detectMobile.lib';
-import Emoji from './Emoji';
+import Emoji from './Loadable';
 
 function Emojify(props) {
   const { children } = props;
