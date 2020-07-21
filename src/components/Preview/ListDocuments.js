@@ -26,7 +26,7 @@ const LinkWrapper = styled.div`
     color: ${(props) => props.theme.brandPrimary};
     ${FileIconMixin};
     margin-right: 0.5rem;
-    font-size: 24px;
+    font-size: ${(p) => p.theme.iconSizeLarge};
   }
   & > span {
     flex-grow: 1;

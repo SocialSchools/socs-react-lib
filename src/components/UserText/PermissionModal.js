@@ -21,7 +21,7 @@ const FlexButton = styled(Button)`
   text-align: left;
   i {
     margin: 0 10px;
-    font-size: 24px;
+    font-size: ${(p) => p.theme.iconSizeLarge};
   }
 `;
 

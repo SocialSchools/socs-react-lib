@@ -96,7 +96,7 @@ const ButtonIcon = styled.i.attrs({
   font-size: 40px;
   padding: 10px;
   @media (max-width: ${(props) => props.theme.screenXsMax}) {
-    font-size: 24px;
+    font-size: ${(p) => p.theme.iconSizeLarge};
     padding: 5px;
   }
   color: ${(props) => props.theme.grayLighter};

@@ -12,7 +12,7 @@ import Icon from '../Icon';
 const Wrapper = styled.div`
   display: inline-block;
   i {
-    font-size: 24px;
+    font-size: ${(p) => p.theme.iconSizeLarge};
     color: ${(p) => p.theme.brandPrimary};
     transition: transform ${(p) => p.theme.transitionDuration};
     transform: rotate(${(p) => p.rotate}deg)
