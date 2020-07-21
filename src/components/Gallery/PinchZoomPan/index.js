@@ -25,8 +25,8 @@ const PzpStyle = createGlobalStyle`
   .pzp-rel {
     position: relative;
     overflow: hidden;
-    width: ${(props) => props.width};
-    height: ${(props) => props.height};
+    width: ${(p) => p.width};
+    height: ${(p) => p.height};
     max-width: 100%;
     max-height: 100%;
   }

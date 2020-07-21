@@ -25,10 +25,6 @@ const RoundBadge = styled(Badge)`
     height: 24px;
     text-transform: uppercase;
   }
-  &.badge-count {
-    background-color: ${(p) => p.theme.contentBg};
-    color: ${(p) => p.theme.brandPrimary};
-  }
 `;
 
 export default RoundBadge;

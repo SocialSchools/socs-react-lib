@@ -15,7 +15,7 @@ import Icon from '../Icon';
 
 const FileIcon = styled(Icon)`
   font-size: 70px;
-  color: ${(props) => props.theme.gray};
+  color: #555;
   &.ss-play {
     color: white;
     font-size: 40px;

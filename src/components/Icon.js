@@ -14,13 +14,6 @@ const Icon = styled.i`
     line-height: 1.5em;
     vertical-align: top;
   }
-  &.ss-checkmark,
-  &.ss-check-sign {
-    color: ${(p) => p.theme.brandSuccess};
-  }
-  &.ss-delete {
-    color: ${(p) => p.theme.brandDanger};
-  }
 
   &.ss-checkmark,
   &.ss-check-sign,

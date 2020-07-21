@@ -23,10 +23,9 @@ const LinkWrapper = styled.div`
   display: flex;
   align-items: center;
   & > i {
-    color: ${(props) => props.theme.brandPrimary};
     ${FileIconMixin};
     margin-right: 0.5rem;
-    font-size: ${(p) => p.theme.iconSizeLarge};
+    font-size: 24px;
   }
   & > span {
     flex-grow: 1;
@@ -44,7 +43,7 @@ function ListDocuments(props) {
       {files.map((file) => (
         <ListGroupItem key={file.id} href={onRemove ? '' : file.fullPath} className="px-1">
           <LinkWrapper>
-            <Icon className={getTypeIcon(file)} />
+            <Icon className={`text-primary ${getTypeIcon(file)}`} />
             <span>{file.fileName}</span>
             {file.loading && <OtherProgressBar now={file.progress} label={`${file.progress}%`} />}
             {onRemove

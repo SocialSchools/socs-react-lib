@@ -31,12 +31,8 @@ export const ReactSelectStyle = createGlobalStyle`
         font-size: 21px;
       }
     }
-    .rs__option--is-selected {
-      background-color: ${(p) => p.theme.contentBg};
-      color: inherit;
-    }
     .rs__option--is-focused {
-      background-color: ${(p) => p.theme.grayLighter};
+      background-color: #eee;
     }
     .rs__placeholder {
       ${placeholderMixin};

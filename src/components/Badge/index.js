@@ -15,12 +15,6 @@ const limitWidth = css`
 const StyledBadge = styled(Badge)`
   &&&.badge {
     margin-left: 0.5rem;
-    &.badge-danger {
-      background-color: ${(p) => p.theme.brandDanger};
-    }
-    &.badge-primary {
-      background-color: ${(p) => p.theme.brandPrimary};
-    }
     ${(p) => (p.color ? withColor : '')};
     ${(p) => (p.maxwidth ? limitWidth : '')};
     flex-shrink: 0;

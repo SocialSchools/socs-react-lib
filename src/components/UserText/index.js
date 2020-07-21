@@ -33,7 +33,7 @@ const converter = new showdown.Converter({
 const bgPad = '3px';
 
 const Wrapper = styled.span`
-  color: ${(p) => p.theme.gray};
+  color: #555;
   overflow-wrap: anywhere;
   p {
     display: ${(p) => (p.inline ? 'inline' : 'block')};
@@ -86,7 +86,7 @@ const Wrapper = styled.span`
       }
     }
     iframe {
-      background: ${(p) => p.theme.grayLighter};
+      background: #eee;
       border: none;
     }
   }

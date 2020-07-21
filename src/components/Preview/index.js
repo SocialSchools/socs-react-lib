@@ -41,7 +41,7 @@ const Wrapper = styled.div`
 
 const PreviewWrapper = styled.div`
   ${centerCss};
-  background: ${(p) => p.theme.grayLighter};
+  background: #eee;
 `;
 
 const SmallWrapper = styled.div`

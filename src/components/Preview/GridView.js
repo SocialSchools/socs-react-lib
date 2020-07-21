@@ -18,7 +18,7 @@ const WrapOne = styled.div`
 
 const Inline = styled(ImageGrid)`
   & > * {
-    flex-basis: calc(99.99% / ${(props) => props.count});
+    flex-basis: calc(99.99% / ${(p) => p.count});
   }
 `;
 

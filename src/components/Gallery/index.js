@@ -44,7 +44,7 @@ const CloseDiv = styled.div`
 
 const Wrapper = styled.div`
   padding-top: 50px;
-  @media (max-width: ${(props) => props.theme.screenXsMax}) {
+  @media (max-width: 767px) {
     padding-top: 30px;
   }
   width: 100%;
@@ -55,7 +55,7 @@ const Wrapper = styled.div`
 `;
 
 const ContentDiv = styled.div`
-  width: ${(props) => props.width};
+  width: ${(p) => p.width};
   max-width: calc(100% - 80px);
   transition: transform 0.3s ease;
   overflow: hidden; // in case of IE/Edge
@@ -84,7 +84,7 @@ const ContentDiv = styled.div`
 `;
 
 const Caption = styled.div`
-  color: ${(props) => props.theme.grayLighter};
+  color: #eee;
   float: right;
 `;
 
@@ -94,15 +94,15 @@ const ButtonIcon = styled.i.attrs({
 })`
   display: inline-block;
   font-size: 40px;
+  color: #eee !important;
   padding: 10px;
-  @media (max-width: ${(props) => props.theme.screenXsMax}) {
-    font-size: ${(p) => p.theme.iconSizeLarge};
+  @media (max-width: 767px) {
+    font-size: 24px;
     padding: 5px;
   }
-  color: ${(props) => props.theme.grayLighter};
   &[disabled] {
     cursor: default;
-    color: ${(props) => props.theme.gray};
+    color: #555;
   }
 `;
 

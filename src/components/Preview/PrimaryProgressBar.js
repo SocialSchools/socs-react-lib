@@ -8,7 +8,6 @@ const PrimaryProgressBar = styled(ProgressBar)`
     height: 14px;
   }
   .progress-bar {
-    background-color: ${(props) => props.theme.brandPrimary};
     line-height: 14px;
   }
 `;
