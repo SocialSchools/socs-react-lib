@@ -19,7 +19,7 @@ function hasClass(classNames, search) {
 
 function getStyledDropdown(p) {
   const bsOpen = hasClass(p.className, 'bs-open');
-  return colorSvg('home', bsOpen && p.theme.brandPrimary);
+  return colorSvg('dropdown', bsOpen && '#555');
 }
 
 const StyledSelect = styled.select`
