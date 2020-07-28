@@ -10,6 +10,15 @@ import iosZoom from './ioszoom';
 import { placeholderMixin } from './placeholderMixin';
 import { reactSelectMixin } from '../components/ReactSelect';
 
+export const rootCss = css`
+  min-height: 100%;
+  min-width: 100%;
+  @media screen {
+    display: flex;
+    flex-direction: column;
+  }
+`;
+
 const iconStyles = css`
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
@@ -41,12 +50,7 @@ export const globalStyleMixin = css`
   }
 
   #root {
-    min-height: 100%;
-    min-width: 100%;
-    @media screen {
-      display: flex;
-      flex-direction: column;
-    }
+    ${rootCss}
   }
 
   .no-overflow {
