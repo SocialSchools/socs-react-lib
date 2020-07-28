@@ -5,4 +5,4 @@ then
   comment=$1
 fi
 
-npm run build && git commit -a -m "'$comment'" && git push
+npm run build && git commit -a -m "$comment" && git push
