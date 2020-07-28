@@ -8,7 +8,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'styled-components';
 import { components } from 'react-select';
-import { placeholderMixin } from '../../styles/placeholderMixin';
+import placeholderMixin from '../../styles/placeholderMixin';
 import Select from './Select';
 import Icon from '../Icon';
 import ReactSelect from './SelectFix';

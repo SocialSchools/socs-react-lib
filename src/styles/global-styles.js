@@ -7,7 +7,7 @@ import './icomoon/style.css';
 import '../utils/tabListener';
 // General styles and styles for bootstrap components
 import iosZoom from './ioszoom';
-import { placeholderMixin } from './placeholderMixin';
+import placeholderMixin from './placeholderMixin';
 import { reactSelectMixin } from '../components/ReactSelect';
 
 export const rootCss = css`
