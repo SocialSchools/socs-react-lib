@@ -140,8 +140,13 @@ SmallSelect.defaultProps = {
 };
 
 function SizeSelect(props) {
-  return window.matchMedia('(min-width: 480px)').matches
-    ? <LargeSelect {...props} /> : <SmallSelect {...props} />;
+  const { large, ...rest } = props;
+  return large || window.matchMedia('(min-width: 480px)').matches
+    ? <LargeSelect {...rest} /> : <SmallSelect {...rest} />;
 }
+
+SizeSelect.propTypes = {
+  large: PropTypes.bool,
+};
 
 export default SizeSelect;
