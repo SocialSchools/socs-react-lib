@@ -6,14 +6,14 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { createGlobalStyle } from 'styled-components';
+import { css } from 'styled-components';
 import { components } from 'react-select';
-import { placeholderMixin } from '../../styles/global-styles';
+import { placeholderMixin } from '../../styles/placeholderMixin';
 import Select from './Select';
 import Icon from '../Icon';
 import ReactSelect from './SelectFix';
 
-export const ReactSelectStyle = createGlobalStyle`
+export const reactSelectMixin = css`
   .rs__control.rs__control {
     border: 1px solid #dddddd;
     border-radius: 16px;

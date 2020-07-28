@@ -7,6 +7,8 @@ import './icomoon/style.css';
 import '../utils/tabListener';
 // General styles and styles for bootstrap components
 import iosZoom from './ioszoom';
+import { placeholderMixin } from './placeholderMixin';
+import { reactSelectMixin } from '../components/ReactSelect';
 
 const iconStyles = css`
   /* use !important to prevent issues with browser extensions that change fonts */
@@ -23,14 +25,8 @@ const iconStyles = css`
   -moz-osx-font-smoothing: grayscale;
 `;
 
-export const placeholderMixin = css`
-  color: #777;
-  font-style: italic;
-  opacity: 1 !important;
-`;
-
 /* eslint no-unused-expressions: 0 */
-const GlobalStyle = createGlobalStyle`
+export const globalStyleMixin = css`
   html {
     width: 100vw;
     height: 100%;
@@ -172,6 +168,9 @@ const GlobalStyle = createGlobalStyle`
     }
   }
   ${iosZoom};
+  ${reactSelectMixin}
 `;
 
-export default GlobalStyle;
+export const LibraryStyle = createGlobalStyle`
+  ${globalStyleMixin};
+`;

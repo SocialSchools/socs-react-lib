@@ -30,5 +30,8 @@
     "react/jsx-props-no-spreading": 0,
     "react/jsx-filename-extension": 0,
     "react/require-default-props": 0
+  },
+  "settings": {
+    "import/core-modules": [ "react", "react-router-dom" ]
   }
 }
