@@ -16,14 +16,13 @@ const fadein = tinyFunction('fadein');
 const { ceil, floor } = Math;
 /* eslint-enable no-unused-vars */
 
-// Change keys of vars to camelCase
-const camelVars = Object.keys(vars).reduce((result, key) => ({ ...result, [camelKey(key)]: vars[key] }), {});
-
-function mergeConfig(school) {
-  const theme = themeFromSchool(school);
-  const merged = { ...camelVars, ...themeVariables, ...theme };
-  return Object.keys(merged).reduce((result, key) => ({ ...result, [key]: parse(key, merged) }), {});
+function camelKey(key) {
+  return camelCase(key.substr(1));
 }
+
+// Change keys of vars to camelCase
+const camelVars = Object.keys(vars)
+  .reduce((result, key) => ({ ...result, [camelKey(key)]: vars[key] }), {});
 
 /**
  * Parse less string to valid CSS
@@ -70,8 +69,13 @@ function parse(key, obj) {
   }
 }
 
-function camelKey(key) {
-  return camelCase(key.substr(1));
+export function mergeTheme(theme) {
+  const merged = { ...camelVars, ...themeVariables, ...theme };
+  return Object.keys(merged)
+    .reduce((result, key) => ({ ...result, [key]: parse(key, merged) }), {});
 }
 
-export default mergeConfig;
+export function mergeConfig(school) {
+  const theme = themeFromSchool(school);
+  return mergeTheme(theme);
+}
