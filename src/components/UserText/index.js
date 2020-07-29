@@ -20,6 +20,7 @@ import Emojify from './Emojify';
 // eslint-disable-next-line import/no-named-as-default
 import DangerouslySetInnerHtml from './DangerouslySetInnerHtml';
 import PermissionModal from './PermissionModal';
+import { mergeClassList } from '../../utils';
 
 const DOMPurify = createDOMPurify(window);
 
@@ -123,12 +124,13 @@ function UserText(props) {
     }
     setVideoLink(false);
   };
+  const fullClassList = mergeClassList(['user-text', className]);
   try {
     const clean = DOMPurify.sanitize(userlinks);
     const withEmbed = inline ? clean : embedVideo(clean, videoStatus);
     return (
       <>
-        <Wrapper className={`user-text ${className}`} inline={inline} onClick={askPermission}>
+        <Wrapper className={fullClassList} inline={inline} onClick={askPermission}>
           <Emojify>
             <DangerouslySetInnerHtml>
               {withEmbed}
@@ -140,7 +142,7 @@ function UserText(props) {
     );
   } catch (err) {
     return (
-      <Wrapper className={`user-text ${className}`} inline={inline}>
+      <Wrapper className={fullClassList} inline={inline}>
         <Emojify>
           {userlinks}
         </Emojify>
