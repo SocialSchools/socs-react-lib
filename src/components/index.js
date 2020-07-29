@@ -1,6 +1,8 @@
 export { default as Gallery } from './Gallery';
 export { default as Video } from './Video';
 export { default as Preview } from './Preview';
+export { default as ImageGrid } from './Preview/ImageGrid';
+export { default as Square } from './Preview/Square';
 export { default as Icon } from './Icon';
 export { default as ExpandIcon } from './ExpandIcon';
 export { default as RoundBadge } from './Badge/RoundBadge';
