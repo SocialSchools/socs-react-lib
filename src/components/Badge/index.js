@@ -12,6 +12,10 @@ const limitWidth = css`
   text-overflow: ellipsis;
 `;
 
+/**
+ * Badge
+ * override bootstrap Badge with props color, maxWidth
+ */
 const StyledBadge = styled(Badge)`
   &&&.badge {
     margin-left: 0.5rem;

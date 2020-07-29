@@ -6,7 +6,7 @@
 
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import showdown from 'showdown';
 import createDOMPurify from 'dompurify';
 import { coverImageCss, posAbsoluteFullCss } from '../../utils/css';
@@ -32,23 +32,19 @@ const converter = new showdown.Converter({
 
 const bgPad = '3px';
 
-const Wrapper = styled.span`
-  color: #555;
-  overflow-wrap: anywhere;
-  p {
-    display: ${(p) => (p.inline ? 'inline' : 'block')};
-  }
+export const userTextHeadersCss = css`
   h1, h2, h2, h4, h5, h6 {
     margin: 0 0 10px;
     line-height: 1.5;
+    font-weight: 500;
   }
   h1 {
-    font-size: 1.3em;
+    font-size: 1.4em;
   }
   h2 {
     font-size: 1.2em;
   }
-  h2 {
+  h3 {
     font-size: 1.1em;
   }
   h4 {
@@ -60,6 +56,15 @@ const Wrapper = styled.span`
   h6 {
     font-size: 0.8em;
   }
+`;
+
+const Wrapper = styled.span`
+  color: #555;
+  overflow-wrap: anywhere;
+  p {
+    display: ${(p) => (p.inline ? 'inline' : 'block')};
+  }
+  ${userTextHeadersCss};
   & > span > p:last-child {
     margin-bottom: 0;
   }

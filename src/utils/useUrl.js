@@ -81,5 +81,16 @@ const useLocationPart = (part) => {
   };
 };
 
+/**
+ * useHash get/set hash part of location
+ *
+ * @returns { obj } { hash: object,  push: func, replace: func }
+ */
 export const useHash = useLocationPart('hash');
+
+/**
+ * useSearch get/set hash part of location
+ *
+ * @returns { obj } { hash: object,  push: func, replace: func }
+ */
 export const useSearch = useLocationPart('search');

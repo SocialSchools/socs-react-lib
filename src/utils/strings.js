@@ -25,14 +25,28 @@ export function limitLength(str, max = 128, show = 16) {
   return str.replace(/\w\S+\w/g, limitWord);
 }
 
+/**
+ * Shorten string, append ellipsis if shortened
+ * @param {string} str
+ * @param {interger} max
+ */
 export function shorten(str, max = 32) {
   return str.length <= max ? str : `${str.slice(0, max).replace(/\S+$/, '')}${HELLIP}`;
 }
 
+/**
+ * Remove HTML tags from string
+ * @param {string} str
+ */
 export function stripTags(str) {
   return str.replace(/<[^>]+>/g, '');
 }
 
+/**
+ * Join strings in array using ',', insert 'and/en' before last
+ * @param {array} arr of strings
+ * @param {string} locale
+ */
 export function strList(arr, locale = 'nl') {
   if (arr.length < 2) {
     return arr.toString();
@@ -47,6 +61,10 @@ export function strList(arr, locale = 'nl') {
   return [...arr.slice(0, -2), last].join(', ');
 }
 
+/**
+ * Replace < and > by html entity
+ * @param {*} text
+ */
 export function encodeHtmlEntities(text) {
   const entities = {
     '<': '&lt;',
@@ -56,6 +74,11 @@ export function encodeHtmlEntities(text) {
   return text.replace(re, (m) => entities[m]);
 }
 
+/**
+ * Locale-specific string comparison
+ * @param {string} a
+ * @param {string} b
+ */
 export function sameString(a, b) {
   return a.localeCompare(b, undefined, { sensitivity: 'base' }) === 0;
 }

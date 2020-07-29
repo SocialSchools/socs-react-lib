@@ -16,6 +16,10 @@ function parsePath(path) {
   return result;
 }
 
+/**
+ * usePathParams get/set parameters in pathname
+ * @returns { array }  [obj: params, func: setParams]
+ */
 function usePathParams() {
   const { pathname } = useLocation();
   const history = useHistory();
