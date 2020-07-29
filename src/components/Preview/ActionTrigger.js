@@ -17,16 +17,21 @@ const Wrapper = styled.div`
   align-items: flex-start;
   button {
     margin: 3px;
+    width: 28px;
+    min-width: 28px;
+    height: 28px;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
   }
-
 `;
 
 function ActionTrigger(props) {
   const { onRemove, onRotate } = props;
   return (
     <Wrapper>
-      <Button icon="ss-trash" bsSize="small" onClick={onRemove} />
-      { onRotate && <Button icon="ss-refresh" bsSize="small" onClick={onRotate} /> }
+      <Button icon="ss-trash" className="btn-sm" onClick={onRemove} />
+      { onRotate && <Button icon="ss-refresh" className="btn-sm" onClick={onRotate} /> }
     </Wrapper>
   );
 }
