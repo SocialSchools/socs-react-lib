@@ -7,7 +7,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Button } from 'react-bootstrap';
+import IconButton from '../IconButton';
 import { posAbsoluteFullCss } from '../../utils/css';
 
 const Wrapper = styled.div`
@@ -30,8 +30,8 @@ function ActionTrigger(props) {
   const { onRemove, onRotate } = props;
   return (
     <Wrapper>
-      <Button icon="ss-trash" className="btn-sm" onClick={onRemove} />
-      { onRotate && <Button icon="ss-refresh" className="btn-sm" onClick={onRotate} /> }
+      <IconButton icon="ss-trash" className="btn-sm" onClick={onRemove} />
+      { onRotate && <IconButton icon="ss-refresh" className="btn-sm" onClick={onRotate} /> }
     </Wrapper>
   );
 }
