@@ -7,9 +7,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {
-  Button, ListGroup, ListGroupItem,
-} from 'react-bootstrap';
+import { Button, ListGroup } from 'react-bootstrap';
 import { getTypeIcon, FileIconMixin } from '../../utils/files';
 import Icon from '../Icon';
 import PrimaryProgressBar from './PrimaryProgressBar';
@@ -41,7 +39,7 @@ function ListDocuments(props) {
   return (
     <ListGroup>
       {files.map((file) => (
-        <ListGroupItem key={file.id} href={onRemove ? '' : file.fullPath} className="px-1">
+        <ListGroup.Item action={!onRemove} key={file.id} href={onRemove ? '' : file.fullPath} className="px-1">
           <LinkWrapper>
             <Icon className={`text-primary ${getTypeIcon(file)}`} />
             <span>{file.fileName}</span>
@@ -49,7 +47,7 @@ function ListDocuments(props) {
             {onRemove
                 && <Button bsStyle="link" icon="ss-delete" aria-label="trash" onClick={onRemove(file)} />}
           </LinkWrapper>
-        </ListGroupItem>
+        </ListGroup.Item>
       ))}
     </ListGroup>
   );
