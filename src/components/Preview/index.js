@@ -14,6 +14,7 @@ import Gallery from '../Gallery';
 
 import { docType, rotateFile } from '../../utils/files';
 import { centerCss } from '../../utils/css';
+import LocaleProvider from '../LocaleProvider';
 import ImagePreview from './ImagePreview';
 import GridView from './GridView';
 import Inline from './Inline';
@@ -126,10 +127,10 @@ class Preview extends React.PureComponent {
           </ImageWrapper>
           {onChange
             && (
-            <ActionTrigger
-              onRemove={this.handleRemove(file)}
-              onRotate={this.handleRotate(file)}
-            />
+              <ActionTrigger
+                onRemove={this.handleRemove(file)}
+                onRotate={this.handleRotate(file)}
+              />
             )}
           {file.loading && <ImageProgressBar now={file.progress} label={`${file.progress}%`} />}
         </Shaper>
@@ -154,22 +155,24 @@ class Preview extends React.PureComponent {
     const media = inline ? parsedFiles.media : parsedFiles.media.slice(0, maxCount);
     const videoWarn = !inline && media.some((m) => m.type === 'video' && m.status === MEDIAFILE_STATUS_QUEUED);
     return (
-      <Wrapper inline={inline} className={className}>
-        <MediaWrapper count={small ? maxCount : Math.min(maxCount, count)} className="media-wrapper">
-          {media.map(this.renderImage(forceSquare, { maxCount, count }))}
-        </MediaWrapper>
-        {videoWarn && <Alert bsStyle="warning"><FormattedMessage {...messages.slowVideos} /></Alert>}
-        {<Alert bsStyle="warning"><FormattedMessage {...messages.slowVideos} /></Alert>}
-        <ListDocuments files={parsedFiles.other} onRemove={onChange && this.handleRemove} />
-        {gallery && startIndex >= 0
-          && (
-            <Gallery
-              items={parsedFiles.media}
-              startIndex={startIndex}
-              onClose={this.closeLightbox}
-            />
-          )}
-      </Wrapper>
+      <LocaleProvider>
+        <Wrapper inline={inline} className={className}>
+          <MediaWrapper count={small ? maxCount : Math.min(maxCount, count)} className="media-wrapper">
+            {media.map(this.renderImage(forceSquare, { maxCount, count }))}
+          </MediaWrapper>
+          {videoWarn && <Alert bsStyle="warning"><FormattedMessage {...messages.slowVideos} /></Alert>}
+          {<Alert bsStyle="warning"><FormattedMessage {...messages.slowVideos} /></Alert>}
+          <ListDocuments files={parsedFiles.other} onRemove={onChange && this.handleRemove} />
+          {gallery && startIndex >= 0
+            && (
+              <Gallery
+                items={parsedFiles.media}
+                startIndex={startIndex}
+                onClose={this.closeLightbox}
+              />
+            )}
+        </Wrapper>
+      </LocaleProvider>
     );
   }
 }

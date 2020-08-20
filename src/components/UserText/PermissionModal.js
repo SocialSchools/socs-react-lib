@@ -10,6 +10,7 @@ import styled from 'styled-components';
 import { FormattedMessage } from 'react-intl';
 import { Modal, Button } from 'react-bootstrap';
 import { STATUS_LINK, STATUS_EMBED } from '../../utils/embedVideo';
+import LocaleProvider from '../LocaleProvider';
 import Icon from '../Icon';
 import messages from './messages';
 
@@ -30,22 +31,24 @@ function PermissionModal(props) {
   const handleChange = (val) => () => onChange(val);
   const values = { provider: 'YouTube' };
   return (
-    <Modal show onHide={onHide}>
-      <Modal.Header closeButton>
-        <Modal.Title><FormattedMessage {...messages.header} /></Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <p><FormattedMessage {...messages.explain} values={values} /></p>
-        <FlexButton bsStyle="link" onClick={handleChange(STATUS_EMBED)}>
-          <Icon className="ss-checkmark" />
-          <FormattedMessage {...messages.embed} values={values} />
-        </FlexButton>
-        <FlexButton bsStyle="link" onClick={handleChange(STATUS_LINK)}>
-          <Icon className="ss-delete" />
-          <FormattedMessage {...messages.link} values={values} />
-        </FlexButton>
-      </Modal.Body>
-    </Modal>
+    <LocaleProvider>
+      <Modal show onHide={onHide}>
+        <Modal.Header closeButton>
+          <Modal.Title><FormattedMessage {...messages.header} /></Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p><FormattedMessage {...messages.explain} values={values} /></p>
+          <FlexButton bsStyle="link" onClick={handleChange(STATUS_EMBED)}>
+            <Icon className="ss-checkmark" />
+            <FormattedMessage {...messages.embed} values={values} />
+          </FlexButton>
+          <FlexButton bsStyle="link" onClick={handleChange(STATUS_LINK)}>
+            <Icon className="ss-delete" />
+            <FormattedMessage {...messages.link} values={values} />
+          </FlexButton>
+        </Modal.Body>
+      </Modal>
+    </LocaleProvider>
   );
 }
 
