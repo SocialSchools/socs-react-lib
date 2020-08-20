@@ -34,7 +34,7 @@ const FullWidth = styled.div`
 `;
 
 const Wrapper = styled.div`
-  &:first-child {
+  & > * {
     margin-bottom: 20px;
   }
 `;
