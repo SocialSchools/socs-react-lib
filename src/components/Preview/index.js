@@ -34,8 +34,8 @@ const FullWidth = styled.div`
 `;
 
 const Wrapper = styled.div`
-  & > .list-group:not(:first-child) {
-    margin-top: 10px;    
+  &::first-child {
+    margin-bottom: 20px;
   }
 `;
 
@@ -155,7 +155,7 @@ class Preview extends React.PureComponent {
     const videoWarn = !inline && media.some((m) => m.type === 'video' && m.status === MEDIAFILE_STATUS_QUEUED);
     return (
       <Wrapper inline={inline} className={className}>
-        <MediaWrapper count={small ? maxCount : Math.min(maxCount, count)}>
+        <MediaWrapper count={small ? maxCount : Math.min(maxCount, count)} className="media-wrapper">
           {media.map(this.renderImage(forceSquare, { maxCount, count }))}
         </MediaWrapper>
         {videoWarn && <Alert bsStyle="warning"><FormattedMessage {...messages.slowVideos} /></Alert>}
