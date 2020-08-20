@@ -45,7 +45,7 @@ function ListDocuments(props) {
             <span>{file.fileName}</span>
             {file.loading && <OtherProgressBar now={file.progress} label={`${file.progress}%`} />}
             {onRemove
-                && <Button bsStyle="link" icon="ss-delete" aria-label="trash" onClick={onRemove(file)} />}
+                && <Button variant="link" icon="ss-delete" aria-label="trash" onClick={onRemove(file)} />}
           </LinkWrapper>
         </ListGroup.Item>
       ))}

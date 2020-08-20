@@ -75,7 +75,7 @@ function Img(props) {
     case STAGE_SPIN:
       return <RotImg {...rest} src={spinner2} delay={delay} onError={handleError} />;
     case STAGE_FAIL:
-      return <Button bsStyle="link" onClick={forceRetry}><img {...rest} src={reload} /></Button>;
+      return <Button variant="link" onClick={forceRetry}><img {...rest} src={reload} /></Button>;
     default:
   }
 }

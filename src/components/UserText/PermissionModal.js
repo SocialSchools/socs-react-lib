@@ -38,11 +38,11 @@ function PermissionModal(props) {
         </Modal.Header>
         <Modal.Body>
           <p><FormattedMessage {...messages.explain} values={values} /></p>
-          <FlexButton bsStyle="link" onClick={handleChange(STATUS_EMBED)}>
+          <FlexButton variant="link" onClick={handleChange(STATUS_EMBED)}>
             <Icon className="ss-checkmark" />
             <FormattedMessage {...messages.embed} values={values} />
           </FlexButton>
-          <FlexButton bsStyle="link" onClick={handleChange(STATUS_LINK)}>
+          <FlexButton variant="link" onClick={handleChange(STATUS_LINK)}>
             <Icon className="ss-delete" />
             <FormattedMessage {...messages.link} values={values} />
           </FlexButton>

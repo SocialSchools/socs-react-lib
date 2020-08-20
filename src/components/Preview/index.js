@@ -160,8 +160,8 @@ class Preview extends React.PureComponent {
           <MediaWrapper count={small ? maxCount : Math.min(maxCount, count)} className="media-wrapper">
             {media.map(this.renderImage(forceSquare, { maxCount, count }))}
           </MediaWrapper>
-          {videoWarn && <Alert bsStyle="warning"><FormattedMessage {...messages.slowVideos} /></Alert>}
-          {<Alert bsStyle="warning"><FormattedMessage {...messages.slowVideos} /></Alert>}
+          {videoWarn && <Alert variant="warning"><FormattedMessage {...messages.slowVideos} /></Alert>}
+          {<Alert variant="warning"><FormattedMessage {...messages.slowVideos} /></Alert>}
           <ListDocuments files={parsedFiles.other} onRemove={onChange && this.handleRemove} />
           {gallery && startIndex >= 0
             && (
