@@ -150,6 +150,12 @@ export const globalStyleMixin = css`
     }
   }
 
+  .list-group-item {
+    border-left: none;
+    border-right: none;
+    border-radius: 0 !important;
+  }
+
   @media not print {
     .visible-print {
       display: none !important;
