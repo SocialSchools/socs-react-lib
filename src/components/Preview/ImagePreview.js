@@ -12,6 +12,7 @@ import Trigger from './Trigger';
 import { posAbsoluteFullCss, centerCss, coverImageCss } from '../../utils/css';
 import { getTypeIcon } from '../../utils/files';
 import Icon from '../Icon';
+import Img from '../Img';
 
 const FileIcon = styled(Icon)`
   font-size: 70px;
@@ -84,10 +85,10 @@ class ImagePreview extends React.PureComponent {
       );
     }
     return fullview
-      ? <img src={file.fullview} alt={file.fileName} />
+      ? <Img src={file.fullview} alt={file.fileName} />
       : (
         <ImgWrapper>
-          <img src={file.preview} alt={file.fileName} />
+          <Img src={file.preview} alt={file.fileName} />
           {overlay && <TextOverlay><Badge>{overlay}</Badge></TextOverlay>}
         </ImgWrapper>
       );

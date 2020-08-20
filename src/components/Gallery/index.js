@@ -12,6 +12,7 @@ import Swipeable from 'react-swipeable';
 import PinchZoomPan from './PinchZoomPan';
 import boundDimensions from './boundDimensions';
 import Video from '../Video';
+import Img from '../Img';
 
 const defaultSize = {
   imgWidth: 400,
@@ -238,7 +239,7 @@ class Gallery extends React.PureComponent {
                 >
                   <div className="lb-media">
                     {item.type === 'image'
-                      ? <img src={item.fullPath || item.preview} alt="" onLoad={this.imageLoaded} />
+                      ? <Img src={item.fullPath || item.preview} alt="" onLoad={this.imageLoaded} />
                       : <Video video={item} />}
                   </div>
                 </Swipeable>
