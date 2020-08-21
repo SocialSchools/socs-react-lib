@@ -134,6 +134,10 @@ export const globalStyleMixin = css`
     border-radius: 50%;
   }
 
+  .modal-backdrop.show {
+    opacity: .5;
+  }
+
   .form-control.form-control::-moz-placeholder {
     ${placeholderMixin};
   }
