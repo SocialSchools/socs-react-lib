@@ -20,7 +20,8 @@ const FlexButton = styled(Button)`
   align-items: center;
   white-space: normal;
   text-align: left;
-  i {
+  color: ${(p) => p.theme.brandPrimary}
+  & > i {
     margin: 0 10px;
     font-size: 24px;
   }
@@ -34,16 +35,16 @@ function PermissionModal(props) {
     <LocaleProvider>
       <Modal show animation={false} onHide={onHide}>
         <Modal.Header closeButton>
-          <Modal.Title><FormattedMessage {...messages.header} /></Modal.Title>
+          <h4 className="modal-title"><FormattedMessage {...messages.header} /></h4>
         </Modal.Header>
         <Modal.Body>
           <p><FormattedMessage {...messages.explain} values={values} /></p>
           <FlexButton variant="link" onClick={handleChange(STATUS_EMBED)}>
-            <Icon className="ss-checkmark" />
+            <Icon className="ss-checkmark text-success" />
             <FormattedMessage {...messages.embed} values={values} />
           </FlexButton>
           <FlexButton variant="link" onClick={handleChange(STATUS_LINK)}>
-            <Icon className="ss-delete" />
+            <Icon className="ss-delete text-danger" />
             <FormattedMessage {...messages.link} values={values} />
           </FlexButton>
         </Modal.Body>
