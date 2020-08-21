@@ -20,10 +20,15 @@ const FlexButton = styled(Button)`
   align-items: center;
   white-space: normal;
   text-align: left;
-  color: ${(p) => p.theme.brandPrimary}
-  & > i {
-    margin: 0 10px;
-    font-size: 24px;
+  &.btn.btn-link {
+    color: ${(p) => p.color || p.theme.linkColor};
+    &:hover, &:focus {
+      color: ${(p) => p.color || p.theme.linkHoverColor};  
+    }
+    i {
+      margin: 0 10px;
+      font-size: 24px;
+    }
   }
 `;
 
