@@ -32,7 +32,7 @@ function PermissionModal(props) {
   const values = { provider: 'YouTube' };
   return (
     <LocaleProvider>
-      <Modal show onHide={onHide}>
+      <Modal show={false} animation={false} onHide={onHide}>
         <Modal.Header closeButton>
           <Modal.Title><FormattedMessage {...messages.header} /></Modal.Title>
         </Modal.Header>

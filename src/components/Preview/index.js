@@ -161,7 +161,7 @@ class Preview extends React.PureComponent {
             {media.map(this.renderImage(forceSquare, { maxCount, count }))}
           </MediaWrapper>
           {videoWarn && <Alert variant="warning"><FormattedMessage {...messages.slowVideos} /></Alert>}
-          {<Alert variant="warning"><FormattedMessage {...messages.slowVideos} /></Alert>}
+          {<Alert variant="warning" transition={false}><FormattedMessage {...messages.slowVideos} /></Alert>}
           <ListDocuments files={parsedFiles.other} onRemove={onChange && this.handleRemove} />
           {gallery && startIndex >= 0
             && (

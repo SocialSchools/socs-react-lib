@@ -53,6 +53,13 @@ export const globalStyleMixin = css`
     ${rootCss}
   }
 
+  .fade.show {
+    opacity: 1;
+    &.modal-backdrop {
+      opacity: 0.5;
+    }
+  }
+
   .no-overflow {
     overflow-wrap: anywhere;
   }
