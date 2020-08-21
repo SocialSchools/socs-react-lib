@@ -34,7 +34,11 @@ function PermissionModal(props) {
   return (
     <LocaleProvider>
       <Modal show animation={false} onHide={onHide}>
-        <Modal.Header closeButton>
+        <Modal.Header>
+          <button type="button" className="close" onClick={onHide}>
+            <span aria-hidden="true">×</span>
+            <span className="sr-only">Close</span>
+          </button>
           <h4 className="modal-title"><FormattedMessage {...messages.header} /></h4>
         </Modal.Header>
         <Modal.Body>
