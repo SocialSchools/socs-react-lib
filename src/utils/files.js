@@ -52,7 +52,7 @@ export function docType(type) {
  * @param type
  * @returns {string}
  */
-function getExtension(filename) {
+export function getExtension(filename) {
   return filename.split('.').pop().toLowerCase();
 }
 
