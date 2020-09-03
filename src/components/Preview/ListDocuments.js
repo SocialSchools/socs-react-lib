@@ -7,9 +7,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Button, ListGroup } from 'react-bootstrap';
+import { ListGroup } from 'react-bootstrap';
 import { getTypeIcon, FileIconMixin } from '../../utils/files';
 import Icon from '../Icon';
+import IconButton from '../IconButton';
 import PrimaryProgressBar from './PrimaryProgressBar';
 
 const OtherProgressBar = styled(PrimaryProgressBar)`
@@ -46,9 +47,7 @@ function ListDocuments(props) {
             {file.loading && <OtherProgressBar now={file.progress} label={`${file.progress}%`} />}
             {onRemove
                 && (
-                <Button variant="link" aria-label="trash" onClick={onRemove(file)}>
-                  <Icon className="ss-delete" />
-                </Button>
+                  <IconButton icon="ss-trash" variant="default" size="sm" className="text-danger" onClick={onRemove(file)} />
                 )}
           </LinkWrapper>
         </ListGroup.Item>

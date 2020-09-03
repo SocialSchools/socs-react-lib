@@ -30,7 +30,7 @@ function ActionTrigger(props) {
   const { onRemove, onRotate } = props;
   return (
     <Wrapper>
-      <IconButton icon="ss-trash" variant="default" size="sm" className="text-primary" onClick={onRemove} />
+      <IconButton icon="ss-trash" variant="default" size="sm" className="text-danger" onClick={onRemove} />
       { onRotate && <IconButton icon="ss-refresh" variant="default" size="sm" className="text-primary" onClick={onRotate} /> }
     </Wrapper>
   );
