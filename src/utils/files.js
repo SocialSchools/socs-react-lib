@@ -4,7 +4,6 @@
 
 import { css } from 'styled-components';
 import colors from 'material-colors';
-import { createImageFile, rotateImageFile } from './imageFile';
 
 export const FileIconMixin = css`
   &.ss-file-word-o { color: ${colors.blue[500]}; }
@@ -52,6 +51,16 @@ export function docType(type) {
  * @param type
  * @returns {string}
  */
+function getExtension(filename) {
+  return filename.split('.').pop().toLowerCase();
+}
+
+function getFileIcon(filename) {
+  const extension = getExtension(filename);
+  const iconInfo = docTypes.find((item) => item.extensions.includes(extension));
+  return iconInfo ? iconInfo.icon : 'ss-file-o';
+}
+
 export function getTypeIcon(file) {
   switch (docType(file.type)) {
     case 'image':
@@ -61,63 +70,4 @@ export function getTypeIcon(file) {
     default:
       return getFileIcon(file.fileName);
   }
-}
-
-export function getFileIcon(filename) {
-  const extension = getExtension(filename);
-  const iconInfo = docTypes.find((item) => item.extensions.includes(extension));
-  return iconInfo ? iconInfo.icon : 'ss-file-o';
-}
-
-export function getExtension(filename) {
-  return filename.split('.').pop().toLowerCase();
-}
-/**
- * count number of files by docType
- * @param files
- */
-export function getTypeCounts(files) {
-  return files.reduce((sums, file) => {
-    const tp = docType(file.type);
-    return {
-      ...sums,
-      [tp]: (sums[tp] || 0) + 1,
-    };
-  }, {});
-}
-
-/**
- * Set orientation for files, only for images, does not work on IE/Edge,
- * @param files
- * @returns {Promise.<*>}
- */
-export function setOrientation(files) {
-  const promises = files.map((file) => imageOnly(file, createImageFile));
-  return Promise.all(promises);
-}
-
-export function rotateFile(file) {
-  return imageOnly(file, rotateImageFile);
-}
-
-export function imageOnly(file, method) {
-  if (docType(file.type) !== 'image') {
-    return Promise.resolve(file);
-  }
-  return method(file);
-}
-
-export function isVideo(file) {
-  return typeTest('video', file);
-}
-
-export function typeTest(type, file) {
-  const patterns = mediaTypes.info[type].pattern.split(',');
-  return patterns.some((pat) => {
-    const match = pat.match(/(\w+\/)\*/);
-    const result = match
-      ? (file.type && file.type.startsWith(match[1]))
-      : file.name.toLowerCase().endsWith(pat);
-    return result;
-  });
 }

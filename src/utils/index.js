@@ -8,3 +8,4 @@ export * from './useUrl';
 export * from './makeTheme';
 export { default as usePathParams } from './usePathParams';
 export { default as mergeClassList } from './mergeClassList';
+export * from './files';
