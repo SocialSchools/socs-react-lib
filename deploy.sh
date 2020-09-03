@@ -5,4 +5,4 @@ then
   comment=$1
 fi
 
-git commit -a -m "$comment" && npm version patch && npm run build && git push
+npm run build && git commit -a -m "$comment" && npm version patch && git push
