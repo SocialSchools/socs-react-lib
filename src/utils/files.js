@@ -28,7 +28,7 @@ const documentExtensions = docTypes.reduce((acc, item) => acc.concat(item.extens
 export const mediaTypes = {
   list: ['image', 'video', 'document'],
   info: {
-    image: { icon: 'ss-camera', pattern: 'image/*' },
+    image: { icon: 'ss-camera', pattern: 'image/*,.heic,.heif' },
     video: { icon: 'ss-playvideo', pattern: 'video/*,.mp4,.mov,.ts,.mkv' },
     document: { icon: 'ss-file', pattern: documentExtensions.map((ext) => `.${ext}`).join(',') },
   },
