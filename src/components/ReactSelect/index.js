@@ -141,7 +141,7 @@ SmallSelect.defaultProps = {
 
 function SizeSelect(props) {
   const { large, ...rest } = props;
-  return large || window.matchMedia('(min-width: 480px)').matches
+  return large || matchMedia('(min-width: 480px)').matches
     ? <LargeSelect {...rest} /> : <SmallSelect {...rest} />;
 }
 
