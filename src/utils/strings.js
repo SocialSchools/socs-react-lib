@@ -73,12 +73,3 @@ export function encodeHtmlEntities(text) {
   const re = new RegExp(`[${Object.keys(entities).join('')}]`, 'g');
   return text.replace(re, (m) => entities[m]);
 }
-
-/**
- * Locale-specific string comparison
- * @param {string} a
- * @param {string} b
- */
-export function sameString(a, b) {
-  return a.localeCompare(b, undefined, { sensitivity: 'base' }) === 0;
-}
