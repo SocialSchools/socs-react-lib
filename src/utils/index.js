@@ -1,6 +1,7 @@
 import './time'; // Will update locales
 
 export * from './characters';
+export * from './css';
 export { default as detectMobile } from './detectMobile.lib';
 export * from './strings';
 export { default as useCookie } from './useCookie';

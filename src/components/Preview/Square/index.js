@@ -29,8 +29,7 @@ const Inner = styled.div`
 function Square(props) {
   return (
     <Outer>
-      <Inner {...props}>
-      </Inner>
+      <Inner {...props} />
     </Outer>
   );
 }
