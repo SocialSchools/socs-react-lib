@@ -34,9 +34,7 @@ const ImgWrapper = styled.div`
 
 const IconOverlay = styled.div`
   ${posAbsoluteFullCss};
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${centerCss};
   /* opacity: ${(props) => (props.processing ? 0.5 : 1)};
   background-color: ${(props) => (props.processing ? 'white' : 'transparent')}; */
   & > div {

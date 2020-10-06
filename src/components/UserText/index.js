@@ -31,6 +31,10 @@ const converter = new showdown.Converter({
   encodeEmails: false,
 });
 
+export function convertUserText(text) {
+  converter.makeHtml(encodeHtmlEntities(text));
+}
+
 const bgPad = '3px';
 
 export const userTextHeadersCss = css`
@@ -100,12 +104,11 @@ const Wrapper = styled.span`
 
 function UserText(props) {
   const { children, inline, className } = props;
-  const text = encodeHtmlEntities(children);
   const [permission, setPermission] = useCookie('videoOption', STATUS_BUTTON);
   const initialStatus = window.location.protocol.startsWith('http') ? permission : STATUS_EMBED;
   const [videoStatus, setVideoStatus] = useState(initialStatus);
   const [videoLink, setVideoLink] = useState(false);
-  const html = converter.makeHtml(text);
+  const html = convertUserText(children);
   const userlinks = html.replace(/<a /g, '<a rel="ugc" ');
   const askPermission = (ev) => {
     // Only div.video-overlay on status=STATUS_BUTTON has data-link attribute set
