@@ -26,8 +26,9 @@ function ISOString(date, allDay) {
  * @param {{start: Date, end: Date, allDay: boolean}}
  * @returns {{start: string, end: string, allDay: boolean}}
  */
-export function toUTCStrings(time) {
-  const { start, end, allDay } = time;
+export function toUTCStrings(time, forceAllDay) {
+  const { start, end } = time;
+  const allDay = forceAllDay || time.allDay;
   const result = {
     ...time,
     start: ISOString(start, allDay),

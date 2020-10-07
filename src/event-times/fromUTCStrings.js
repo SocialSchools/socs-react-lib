@@ -18,8 +18,8 @@ function stringToTime(str, allDay) {
  * @param time
  * @returns {{start: *|Date, end: *|Date, allDay: boolean}}
  */
-function fromUTCStrings(time) {
-  let { allDay } = time;
+function fromUTCStrings(time, forceAllDay) {
+  let allDay = forceAllDay || time.allDay;
   if (allDay === undefined) {
     const midnight = 'T00:00:00Z';
     allDay = time.start.endsWith(midnight) && time.end.endsWith(midnight);
