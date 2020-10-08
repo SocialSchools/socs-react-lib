@@ -32,7 +32,7 @@ const converter = new showdown.Converter({
 });
 
 export function convertUserText(text) {
-  converter.makeHtml(encodeHtmlEntities(text));
+  return converter.makeHtml(encodeHtmlEntities(text));
 }
 
 const bgPad = '3px';
