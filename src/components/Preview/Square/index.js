@@ -5,7 +5,7 @@
 */
 
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Outer = styled.div`
@@ -13,7 +13,7 @@ const Outer = styled.div`
   &::before {
     content: '';
     display: block;
-    padding-bottom: 100%;
+    padding-bottom: ${(p) => p.aspect};
   }
 `;
 
@@ -27,11 +27,20 @@ const Inner = styled.div`
 `;
 
 function Square(props) {
+  const { aspect, ...rest } = props;
   return (
-    <Outer>
-      <Inner {...props} />
+    <Outer aspect={aspect}>
+      <Inner {...rest} />
     </Outer>
   );
 }
+
+Square.propTypes = {
+  aspect: PropTypes.string,
+};
+
+Square.defaultProps = {
+  aspect: '100%',
+};
 
 export default Square;
