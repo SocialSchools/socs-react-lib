@@ -64,7 +64,7 @@ export const userTextHeadersCss = css`
 `;
 
 const Wrapper = styled.span`
-  color: #555;
+  color: ${(p) => (p.inline ? 'inherit' : '#555')};
   overflow-wrap: anywhere;
   p {
     display: ${(p) => (p.inline ? 'inline' : 'block')};
