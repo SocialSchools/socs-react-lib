@@ -54,6 +54,7 @@
     "emoji-js": "^3.5.0",
     "js-cookie": "^2.2.1",
     "lodash": "^4.17.15",
+    "marked": "^1.2.7",
     "material-colors": "^1.2.6",
     "moment": "^2.27.0",
     "prop-types": "^15.7.2",
@@ -62,7 +63,6 @@
     "react-intl": "^5.3.2",
     "react-select": "^3.1.0",
     "react-swipeable": "^4.2.0",
-    "showdown": "^1.9.1",
     "styled-components": "^5.1.1",
     "tinycolor2": "^1.4.1"
   },

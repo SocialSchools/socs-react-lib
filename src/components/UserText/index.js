@@ -7,7 +7,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import showdown from 'showdown';
+import marked from 'marked';
 import createDOMPurify from 'dompurify';
 import { coverImageCss, posAbsoluteFullCss } from '../../utils/css';
 import videoIcon from './images/playvideo2.svg';
@@ -24,15 +24,8 @@ import { mergeClassList } from '../../utils';
 
 const DOMPurify = createDOMPurify(window);
 
-const converter = new showdown.Converter({
-  simplifiedAutoLink: true,
-  simpleLineBreaks: true,
-  excludeTrailingPunctuationFromURLs: true,
-  encodeEmails: false,
-});
-
 export function convertUserText(text) {
-  return converter.makeHtml(encodeHtmlEntities(text));
+  return marked(encodeHtmlEntities(text));
 }
 
 const bgPad = '3px';
