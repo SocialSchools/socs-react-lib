@@ -97,6 +97,7 @@ const Wrapper = styled.span`
 
 function UserText(props) {
   const { children, inline, className } = props;
+  marked.setOptions({ breaks: true });
   const [permission, setPermission] = useCookie('videoOption', STATUS_BUTTON);
   const initialStatus = window.location.protocol.startsWith('http') ? permission : STATUS_EMBED;
   const [videoStatus, setVideoStatus] = useState(initialStatus);
