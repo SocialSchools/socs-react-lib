@@ -24,10 +24,6 @@ import { mergeClassList } from '../../utils';
 
 const DOMPurify = createDOMPurify(window);
 
-export function convertUserText(text) {
-  return marked(encodeHtmlEntities(text));
-}
-
 const bgPad = '3px';
 
 export const userTextHeadersCss = css`
@@ -102,7 +98,8 @@ function UserText(props) {
   const initialStatus = window.location.protocol.startsWith('http') ? permission : STATUS_EMBED;
   const [videoStatus, setVideoStatus] = useState(initialStatus);
   const [videoLink, setVideoLink] = useState(false);
-  const html = convertUserText(children);
+  const converter = inline ? marked.parseInline : marked;
+  const html = converter(encodeHtmlEntities(children));
   const userlinks = html.replace(/<a /g, '<a rel="ugc" ');
   const askPermission = (ev) => {
     // Only div.video-overlay on status=STATUS_BUTTON has data-link attribute set
