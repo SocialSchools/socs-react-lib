@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 /**
  *
  * urlUtils
@@ -64,6 +63,7 @@ const useLocationPart = (part) => {
     const location = useLocation();
     const history = useHistory();
     const asObject = parseString(location[part]);
+    const asString = location[part].slice(1);
     function setValue(o, v) {
       if (typeof o === 'string') {
         // Update property o
@@ -75,6 +75,7 @@ const useLocationPart = (part) => {
     }
     return {
       ...asObject,
+      asString,
       push: (o, v) => history.push(setValue(o, v)),
       replace: (o, v) => history.replace(setValue(o, v)),
     };
