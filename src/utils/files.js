@@ -120,6 +120,6 @@ function typeTest(type, file) {
   });
 }
 
-export function isVideo(file) {
-  return typeTest('video', file);
+export function isAllowedFile(file, allowVideo) {
+  return mediaTypes.list.some((type) => (type !== 'video' || allowVideo) && typeTest(type, file));
 }
