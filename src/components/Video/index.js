@@ -14,6 +14,9 @@ function Video(props) {
   const playerElem = useRef(null);
   const playing = useRef();
   const onTouch = () => {
+    if (!playerElem.current) {
+      return;
+    }
     if (playing.current) {
       playerElem.current.pause();
     } else {
