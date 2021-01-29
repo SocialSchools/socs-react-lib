@@ -15,7 +15,7 @@ export const FileIconMixin = css`
 `;
 
 const docTypes = [
-  { id: 'doc', icon: 'ss-file-word-o', extensions: ['doc', 'docx', 'odt', 'rtf'] },
+  { id: 'doc', icon: 'ss-file-word-o', extensions: ['doc', 'docx', 'dotx', 'odt', 'rtf'] },
   { id: 'xls', icon: 'ss-file-excel-o', extensions: ['xls', 'xlsx', 'ods'] },
   { id: 'ppt', icon: 'ss-file-powerpoint-o', extensions: ['ppt', 'pptx', 'pps', 'ppsx', 'odp'] },
   { id: 'pdf', icon: 'ss-file-pdf-o', extensions: ['pdf'] },
