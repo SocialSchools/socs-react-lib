@@ -1,14 +1,12 @@
-import { addDays } from 'date-fns';
+import { addDays, format } from 'date-fns';
 
 /**
  * ISString: as toISOString, but removes microseconds from UTC
  * @param {} date
  */
-function ISODateString(date) {
-  const yr = date.getFullYear();
-  const mo = String(date.getMonth() + 1).padStart(2, '0');
-  const dt = String(date.getDate()).padStart(2, '0');
-  return `${yr}-${mo}-${dt}T00:00:00Z`;
+export function ISODateString(date) {
+  const dateStr = format(date, 'yyyy-MM-dd');
+  return `${dateStr}T00:00:00.000Z`;
 }
 
 /**
