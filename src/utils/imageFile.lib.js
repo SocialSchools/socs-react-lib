@@ -34,11 +34,13 @@ function createObjectURL(blob) {
 
 // For options, see https://github.com/blueimp/JavaScript-Load-Image/blob/8def72724a432c74536471da3cbac11596231ede/js/load-image-orientation.js#L54
 /* eslint-disable no-param-reassign */
+// eslint-disable-next-line import/prefer-default-export
 export async function asyncLoad(file, options) {
   try {
     const canvas = await promiseLoadImage(file, options);
     if (canvas) {
       const blob = await promiseToBlob(canvas);
+      file.blob = blob;
       const preview = createObjectURL(blob);
       if (preview) {
         file.preview = preview;
