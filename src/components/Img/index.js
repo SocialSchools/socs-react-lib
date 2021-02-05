@@ -49,7 +49,9 @@ function Img(props) {
   };
   useEffect(() => cancelTimeout, []);
   const altProps = omit(props, ['bsSize', 'group']);
-  const { delay, retry, src, ...rest } = altProps;
+  const {
+    delay, retry, src, ...rest
+  } = altProps;
   if (retry === 0) {
     return <img {...altProps} />;
   }
@@ -73,7 +75,7 @@ function Img(props) {
     case STAGE_TRYING:
       return <img {...rest} src={src} onError={handleError} />;
     case STAGE_SPIN:
-      return <RotImg {...rest} src={spinner2} delay={delay} onError={handleError} />;
+      return <RotImg className="img-retry-spinner" {...rest} src={spinner2} delay={delay} onError={handleError} />;
     case STAGE_FAIL:
       return <Button variant="link" onClick={forceRetry}><img {...rest} src={reload} /></Button>;
     default:
