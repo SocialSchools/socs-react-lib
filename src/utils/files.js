@@ -10,8 +10,7 @@ export const FileIconMixin = css`
   &.ss-file-word-o { color: ${colors.blue[500]}; }
   &.ss-file-excel-o { color: ${colors.green[500]}; }
   &.ss-file-powerpoint-o { color: ${colors.amber[700]}; }
-  &.ss-file-pdf-o { color: ${colors.red[500]}; }
-  &.ss-file-audio-o { color: ${colors.purple[500]}; }
+  &.ss-file-pdf-o { color: ${colors.red[500]}; }le-audio-o { color: ${colors.purple[500]}; }
 `;
 
 const docTypes = [
@@ -29,7 +28,7 @@ export const mediaTypes = {
   list: ['image', 'video', 'document'],
   info: {
     image: { icon: 'ss-camera', pattern: 'image/*,.heic,.heif' },
-    video: { icon: 'ss-playvideo', pattern: 'video/*,.mp4,.mov,.ts,.mkv' },
+    video: { icon: 'ss-playvideo', pattern: 'video/*,.mp4,.mov,.ts,.mkv,.3gp' },
     document: { icon: 'ss-file', pattern: documentExtensions.map((ext) => `.${ext}`).join(',') },
   },
 };
