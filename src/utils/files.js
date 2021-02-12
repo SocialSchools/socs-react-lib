@@ -19,8 +19,8 @@ const docTypes = [
   { id: 'xls', icon: 'ss-file-excel-o', extensions: ['xls', 'xlsx', 'ods'] },
   { id: 'ppt', icon: 'ss-file-powerpoint-o', extensions: ['ppt', 'pptx', 'pps', 'ppsx', 'odp'] },
   { id: 'pdf', icon: 'ss-file-pdf-o', extensions: ['pdf'] },
-  { id: 'txt', icon: 'ss-file-text-o', extensions: ['txt'] },
-  { id: 'audio', icon: 'ss-file-audio-o', extensions: ['mp3', 'wav', 'm4a', 'wma'] },
+  { id: 'txt', icon: 'ss-file-text-o', extensions: ['txt', 'eml', 'epub'] },
+  { id: 'audio', icon: 'ss-file-audio-o', extensions: ['aac', 'amr', 'mp3', 'wav', 'm4a', 'wma', 'mod', 'ogg'] },
 ];
 
 const documentExtensions = docTypes.reduce((acc, item) => acc.concat(item.extensions), []);
