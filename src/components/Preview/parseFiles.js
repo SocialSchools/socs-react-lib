@@ -7,6 +7,7 @@ function parseFiles(files) {
   const other = [];
   const videos = [];
   files.forEach((f) => {
+    console.log('parseFiles', f);
     const fileProps = f.file ? {
       preview: f.file.preview,
       fullview: f.file.preview,
