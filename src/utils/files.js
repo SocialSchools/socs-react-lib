@@ -91,6 +91,7 @@ export function getFileIcon(filename) {
 }
 
 export function getTypeIcon(file) {
+  console.log('getTypeIcon', file);
   switch (fileType(file)) {
     case 'image':
       return 'ss-camera';
@@ -106,7 +107,9 @@ export function getTypeIcon(file) {
  * @param files
  */
 export function getTypeCounts(files) {
+  console.log('getTypeCounts', files);
   return files.reduce((sums, file) => {
+    console.log('getTypeCount', file);
     const tp = fileType(file);
     return {
       ...sums,

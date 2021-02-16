@@ -18,6 +18,7 @@ function parseFiles(files) {
       fullview: (typeTest('image', f) && f.fullPath) || f.thumb_md || f.thumb_sm,
       type: fileType(f),
     };
+    console.log('parseFiles2', fileProps);
     const file = { ...f, ...fileProps, processing: fileProps.type !== 'document' && f.status === MEDIAFILE_STATUS_QUEUED };
     if (file.type === 'image') {
       images.push(file);
