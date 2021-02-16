@@ -33,21 +33,44 @@ export const mediaTypes = {
   },
 };
 
-/**
- * Return image/video/document, depending on mime-type
- * @param type
- * @returns {string}
- */
-export function docType(type) {
-  if (typeof type === 'number') {
-    return ['image', 'video', 'document'][type - 1];
+// /**
+//  * Return image/video/document, depending on mime-type
+//  * @param type
+//  * @returns {string}
+//  */
+// export function docType(type) {
+//   if (typeof type === 'number') {
+//     return ['image', 'video', 'document'][type - 1];
+//   }
+//   const match = type && type.match(/^(image|video)\//);
+//   return match ? match[1] : 'document';
+// }
+
+export function typeTest(type, file) {
+  if (typeof file.type === 'number') {
+    return ['image', 'video', 'document'][file.type - 1];
   }
-  const match = type && type.match(/^(image|video)\//);
-  return match ? match[1] : 'document';
+  const patterns = mediaTypes.info[type].pattern.split(',');
+  return patterns.some((pat) => {
+    const match = pat.match(/(\w+\/)\*/);
+    const result = match
+      ? (file.type && file.type.startsWith(match[1]))
+      : file.name.toLowerCase().endsWith(pat);
+    return result;
+  });
+}
+
+export function fileType(file) {
+  const type = ['image', 'video'].find((t) => typeTest(t, file));
+  return type || 'document';
+}
+
+export function isAllowedFile(file, allowVideo) {
+  return mediaTypes.list.some((type) => (type !== 'video' || allowVideo) && typeTest(type, file));
 }
 
 /**
- * Get icon corresponding to docType
+ * Get icon corresponding to fileType
  * @param type
  * @returns {string}
  */
@@ -62,7 +85,7 @@ export function getFileIcon(filename) {
 }
 
 export function getTypeIcon(file) {
-  switch (docType(file.type)) {
+  switch (fileType(file)) {
     case 'image':
       return 'ss-camera';
     case 'video':
@@ -73,12 +96,12 @@ export function getTypeIcon(file) {
 }
 
 /**
- * count number of files by docType
+ * count number of files by fileType
  * @param files
  */
 export function getTypeCounts(files) {
   return files.reduce((sums, file) => {
-    const tp = docType(file.type);
+    const tp = fileType(file);
     return {
       ...sums,
       [tp]: (sums[tp] || 0) + 1,
@@ -93,7 +116,7 @@ export function getTypeCounts(files) {
  */
 
 export function imageOnly(file, method) {
-  if (docType(file.type) !== 'image') {
+  if (typeTest('image', file)) {
     return Promise.resolve(file);
   }
   return method(file);
@@ -106,19 +129,4 @@ export function setOrientation(files) {
 
 export function rotateFile(file) {
   return imageOnly(file, rotateImageFile);
-}
-
-function typeTest(type, file) {
-  const patterns = mediaTypes.info[type].pattern.split(',');
-  return patterns.some((pat) => {
-    const match = pat.match(/(\w+\/)\*/);
-    const result = match
-      ? (file.type && file.type.startsWith(match[1]))
-      : file.name.toLowerCase().endsWith(pat);
-    return result;
-  });
-}
-
-export function isAllowedFile(file, allowVideo) {
-  return mediaTypes.list.some((type) => (type !== 'video' || allowVideo) && typeTest(type, file));
 }

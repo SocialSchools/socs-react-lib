@@ -12,7 +12,7 @@ import { FormattedMessage } from 'react-intl';
 import Square from './Square';
 import Gallery from '../Gallery';
 
-import { docType, rotateFile } from '../../utils/files';
+import { typeTest, rotateFile } from '../../utils/files';
 import { centerCss } from '../../utils/css';
 import LocaleProvider from '../LocaleProvider';
 import ImagePreview from './ImagePreview';
@@ -79,7 +79,7 @@ class Preview extends React.PureComponent {
       return undefined;
     }
     const { onChange } = this.props;
-    if (docType(item.file.type) !== 'image') {
+    if (!typeTest('image', item.file)) {
       return undefined;
     }
     return () => rotateFile(item.file)
