@@ -47,20 +47,14 @@ export const mediaTypes = {
 // }
 
 export function typeTest(type, file) {
+  if (type === file.type) {
+    return true;
+  }
   const { info } = mediaTypes;
   if (typeof file.type === 'number') {
-    const found = Object.keys(info).find((key) => info[key].id === file.type);
-    console.log('typeTest 1', found, type);
-    if (found) {
-      return found === type;
-    }
-  }
-  if (info[file.type]) {
-    console.log('typeTest 2', file.type, type);
-    return file.type === type;
+    return info[type.id] === file.type;
   }
   const patterns = info[type].pattern.split(',');
-  console.log('typeTest', { type, file });
   return patterns.some((pat) => {
     const match = pat.match(/(\w+\/)\*/);
     const result = match
