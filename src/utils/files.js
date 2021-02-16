@@ -51,6 +51,7 @@ export function typeTest(type, file) {
     return ['image', 'video', 'document'][file.type - 1] === type;
   }
   const patterns = mediaTypes.info[type].pattern.split(',');
+  console.log('typeTest', { type, file });
   return patterns.some((pat) => {
     const match = pat.match(/(\w+\/)\*/);
     const result = match
