@@ -74,6 +74,7 @@ const FileName = styled.div`
 class ImagePreview extends React.PureComponent {
   renderPreview() {
     const { file, fullview, overlay } = this.props;
+    console.log('ImagePreview', this.props);
     if (file.preview === undefined) {
       return (
         <div>

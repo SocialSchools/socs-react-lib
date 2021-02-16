@@ -47,9 +47,7 @@ export const mediaTypes = {
 // }
 
 export function typeTest(type, file) {
-  console.log('typeTest', { type, file });
   if (typeof file.type === 'number') {
-    console.log('number', ['image', 'video', 'document'][file.type - 1]);
     return ['image', 'video', 'document'][file.type - 1] === type;
   }
   const patterns = mediaTypes.info[type].pattern.split(',');
