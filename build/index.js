@@ -1,6 +1,6 @@
 /*!
  * 
- *   socs-react-lib v1.0.50
+ *   socs-react-lib v1.0.51
  *   https://github.com/SocialSchools/event-times
  * 
  *   Copyright (c) Harry Oosterveen
