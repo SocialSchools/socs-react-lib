@@ -79,6 +79,7 @@ class Preview extends React.PureComponent {
       return undefined;
     }
     const { onChange } = this.props;
+    console.log('HandleRotate', item.file);
     if (!typeTest('image', item.file)) {
       return undefined;
     }
