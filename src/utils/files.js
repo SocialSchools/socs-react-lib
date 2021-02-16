@@ -65,6 +65,7 @@ export function fileType(file) {
   if (typeof file.type === 'number') {
     return ['image', 'video', 'document'][file.type - 1];
   }
+  console.log('fileType', file);
   const type = ['image', 'video'].find((t) => typeTest(t, file));
   return type || 'document';
 }
