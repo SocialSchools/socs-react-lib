@@ -149,6 +149,7 @@ class Preview extends React.PureComponent {
     }
     const parsedFiles = parseFiles(files);
     parsedFiles.media = [...parsedFiles.videos, ...parsedFiles.images];
+    console.log('parsedFiled', parseFiles);
     const MediaWrapper = inline ? Inline : GridView;
     const count = parsedFiles.media.length;
     const forceSquare = inline || small || (count > 1);

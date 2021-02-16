@@ -74,11 +74,11 @@ const FileName = styled.div`
 class ImagePreview extends React.PureComponent {
   renderPreview() {
     const { file, fullview, overlay } = this.props;
-    console.log('ImagePreview', this.props);
+    console.log('ImagePreview', file);
     if (file.preview === undefined) {
       return (
         <div>
-          <FileIcon className={getTypeIcon(file)} />
+          {/* <FileIcon className={getTypeIcon(file)} /> */}
           <FileName title={file.fileName}>{file.fileName}</FileName>
         </div>
       );
