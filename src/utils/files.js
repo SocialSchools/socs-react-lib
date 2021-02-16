@@ -71,6 +71,7 @@ export function fileType(file) {
 }
 
 export function isAllowedFile(file, allowVideo) {
+  console.log('isAllowedFile', file);
   return mediaTypes.list.some((type) => (type !== 'video' || allowVideo) && typeTest(type, file));
 }
 
