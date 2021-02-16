@@ -27,6 +27,9 @@ function parseFiles(files) {
       other.push(file);
     }
   });
+  console.log('parseFiles', {
+    files, images, videos, other,
+  });
   return { images, videos, other };
 }
 
