@@ -120,6 +120,7 @@ export function getTypeCounts(files) {
  */
 
 export function imageOnly(file, method) {
+  console.log('imageOnly', file);
   if (typeTest('image', file)) {
     return Promise.resolve(file);
   }
