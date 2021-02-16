@@ -27,9 +27,9 @@ const documentExtensions = docTypes.reduce((acc, item) => acc.concat(item.extens
 export const mediaTypes = {
   list: ['image', 'video', 'document'],
   info: {
-    image: { icon: 'ss-camera', pattern: 'image/*,.heic,.heif' },
-    video: { icon: 'ss-playvideo', pattern: 'video/*,.mp4,.mov,.ts,.mkv,.3gp' },
-    document: { icon: 'ss-file', pattern: documentExtensions.map((ext) => `.${ext}`).join(',') },
+    image: { id: 1, icon: 'ss-camera', pattern: 'image/*,.heic,.heif' },
+    video: { id: 2, icon: 'ss-playvideo', pattern: 'video/*,.mp4,.mov,.ts,.mkv,.3gp' },
+    document: { id: 3, icon: 'ss-file', pattern: documentExtensions.map((ext) => `.${ext}`).join(',') },
   },
 };
 
@@ -47,10 +47,19 @@ export const mediaTypes = {
 // }
 
 export function typeTest(type, file) {
+  const { info } = mediaTypes;
   if (typeof file.type === 'number') {
-    return ['image', 'video', 'document'][file.type - 1] === type;
+    const found = Object.keys(info).find((key) => info[key].id === file.type);
+    console.log('typeTest 1', found, type);
+    if (found) {
+      return found === type;
+    }
   }
-  const patterns = mediaTypes.info[type].pattern.split(',');
+  if (info[file.type]) {
+    console.log('typeTest 2', file.type, type);
+    return file.type === type;
+  }
+  const patterns = info[type].pattern.split(',');
   console.log('typeTest', { type, file });
   return patterns.some((pat) => {
     const match = pat.match(/(\w+\/)\*/);
@@ -65,13 +74,11 @@ export function fileType(file) {
   if (typeof file.type === 'number') {
     return ['image', 'video', 'document'][file.type - 1];
   }
-  console.log('fileType', file);
   const type = ['image', 'video'].find((t) => typeTest(t, file));
   return type || 'document';
 }
 
 export function isAllowedFile(file, allowVideo) {
-  console.log('isAllowedFile', file);
   return mediaTypes.list.some((type) => (type !== 'video' || allowVideo) && typeTest(type, file));
 }
 
@@ -91,7 +98,6 @@ export function getFileIcon(filename) {
 }
 
 export function getTypeIcon(file) {
-  console.log('getTypeIcon', file);
   switch (fileType(file)) {
     case 'image':
       return 'ss-camera';
@@ -107,9 +113,7 @@ export function getTypeIcon(file) {
  * @param files
  */
 export function getTypeCounts(files) {
-  console.log('getTypeCounts', files);
   return files.reduce((sums, file) => {
-    console.log('getTypeCount', file);
     const tp = fileType(file);
     return {
       ...sums,
@@ -125,7 +129,6 @@ export function getTypeCounts(files) {
  */
 
 export function imageOnly(file, method) {
-  console.log('imageOnly', file);
   if (typeTest('image', file)) {
     return Promise.resolve(file);
   }
