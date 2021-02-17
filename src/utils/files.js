@@ -33,18 +33,8 @@ export const mediaTypes = {
   },
 };
 
-// /**
-//  * Return image/video/document, depending on mime-type
-//  * @param type
-//  * @returns {string}
-//  */
-// export function docType(type) {
-//   if (typeof type === 'number') {
-//     return ['image', 'video', 'document'][type - 1];
-//   }
-//   const match = type && type.match(/^(image|video)\//);
-//   return match ? match[1] : 'document';
-// }
+mediaTypes.byId = mediaTypes.list
+  .reduce((acc, key) => ({ ...acc, [mediaTypes.info[key].id]: key }), {});
 
 export function typeTest(type, file) {
   if (type === file.type) {
@@ -59,14 +49,14 @@ export function typeTest(type, file) {
     const match = pat.match(/(\w+\/)\*/);
     const result = match
       ? (file.type && file.type.startsWith(match[1]))
-      : file.name.toLowerCase().endsWith(pat);
+      : (file.name || file.fileName).toLowerCase().endsWith(pat);
     return result;
   });
 }
 
 export function fileType(file) {
   if (typeof file.type === 'number') {
-    return ['image', 'video', 'document'][file.type - 1];
+    return mediaTypes.list[file.type - 1];
   }
   const type = ['image', 'video'].find((t) => typeTest(t, file));
   return type || 'document';
@@ -123,7 +113,7 @@ export function getTypeCounts(files) {
  */
 
 export function imageOnly(file, method) {
-  if (typeTest('image', file)) {
+  if (!typeTest('image', file)) {
     return Promise.resolve(file);
   }
   return method(file);

@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import { Badge } from 'react-bootstrap';
 import Trigger from './Trigger';
 import { posAbsoluteFullCss, centerCss, coverImageCss } from '../../utils/css';
-import { getTypeIcon } from '../../utils/files';
+import { fileType, getTypeIcon } from '../../utils/files';
 import Icon from '../Icon';
 import Img from '../Img';
 
@@ -59,7 +59,7 @@ const TextOverlay = styled(IconOverlay)`
 const FileName = styled.div`
   position: absolute;
   left: 0;
-  top: 0;
+  bottom: 3px;
   right: 0;
   background-color: #fff;
   color: #000;
@@ -77,7 +77,7 @@ class ImagePreview extends React.PureComponent {
     if (file.preview === undefined) {
       return (
         <div>
-          <FileIcon className={getTypeIcon(file)} />
+          { fileType(file) !== 'video' && <FileIcon className={getTypeIcon(file)} />}
           <FileName title={file.fileName}>{file.fileName}</FileName>
         </div>
       );
