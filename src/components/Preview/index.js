@@ -105,7 +105,7 @@ class Preview extends React.PureComponent {
   renderImage(forceSquare, options) {
     return (file, idx) => {
       const {
-        onChange, inline, small, gallery,
+        onChange, inline, small, gallery, noRetry,
       } = this.props;
       const { startIndex } = this.state;
       const Shaper = forceSquare ? Square : FullWidth;
@@ -123,6 +123,7 @@ class Preview extends React.PureComponent {
               overlay={overlay}
               editing={onChange !== undefined}
               onClick={gallery && this.openLightbox(idx)}
+              noRetry={noRetry}
             />
           </ImageWrapper>
           {onChange
@@ -183,6 +184,7 @@ Preview.propTypes = {
   files: PropTypes.array,
   onChange: PropTypes.func,
   gallery: PropTypes.bool,
+  noRetry: PropTypes.bool,
 };
 
 export default Preview;

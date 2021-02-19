@@ -73,7 +73,9 @@ const FileName = styled.div`
 
 class ImagePreview extends React.PureComponent {
   renderPreview() {
-    const { file, fullview, overlay } = this.props;
+    const {
+      file, fullview, overlay, noRetry,
+    } = this.props;
     if (file.preview === undefined) {
       return (
         <div>
@@ -83,7 +85,7 @@ class ImagePreview extends React.PureComponent {
       );
     }
     return fullview
-      ? <Img src={file.fullview} alt={file.fileName} />
+      ? <Img src={file.fullview} alt={file.fileName} retry={noRetry ? 0 : undefined} />
       : (
         <ImgWrapper>
           <Img src={file.preview} alt={file.fileName} />
@@ -112,11 +114,7 @@ class ImagePreview extends React.PureComponent {
   render() {
     const { onClick, disabled } = this.props;
     if (!onClick || disabled) {
-      return (
-        <>
-          {this.renderWithIcon()}
-        </>
-      );
+      return this.renderWithIcon();
     }
     return (
       <Trigger onClick={onClick}>
@@ -131,6 +129,7 @@ ImagePreview.propTypes = {
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
   fullview: PropTypes.bool,
+  noRetry: PropTypes.bool,
   overlay: PropTypes.string,
 };
 
