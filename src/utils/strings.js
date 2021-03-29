@@ -22,7 +22,7 @@ export function limitLength(str, max = 128, show = 16) {
   const limitWord = (word) => (word.length > max
     ? [word.slice(0, show), word.slice(-show)].join(HELLIP)
     : word);
-  return str.replace(/\w\S+\w/g, limitWord);
+  return str && str.replace(/\w\S+\w/g, limitWord);
 }
 
 /**
