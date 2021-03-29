@@ -71,5 +71,5 @@ export function encodeHtmlEntities(text) {
     '>': '&gt;',
   };
   const re = new RegExp(`[${Object.keys(entities).join('')}]`, 'g');
-  return text.replace(re, (m) => entities[m]);
+  return text && text.replace(re, (m) => entities[m]);
 }
