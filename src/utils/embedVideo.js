@@ -53,7 +53,7 @@ function embedVideo(html, status) {
     return `<div class="embed-video">${embed.replace(/:key/g, key)}</div>`;
   }
 
-  return html && html.replace(/<a[^>]+>.*?<\/a>/g, findEmbed);
+  return html.replace(/<a[^>]+>.*?<\/a>/g, findEmbed);
 }
 
 export default embedVideo;

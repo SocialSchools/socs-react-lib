@@ -22,7 +22,7 @@ export function limitLength(str, max = 128, show = 16) {
   const limitWord = (word) => (word.length > max
     ? [word.slice(0, show), word.slice(-show)].join(HELLIP)
     : word);
-  return str && str.replace(/\w\S+\w/g, limitWord);
+  return str.replace(/\w\S+\w/g, limitWord);
 }
 
 /**
@@ -71,8 +71,5 @@ export function encodeHtmlEntities(text) {
     '>': '&gt;',
   };
   const re = new RegExp(`[${Object.keys(entities).join('')}]`, 'g');
-  if (text && !text.replace) {
-    console.log('enchtml', text, typeof text, JSON.stringify(text), text.toString());
-  }
-  return text && text.replace(re, (m) => entities[m]);
+  return text.replace(re, (m) => entities[m]);
 }
