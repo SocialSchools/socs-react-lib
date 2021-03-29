@@ -72,7 +72,7 @@ export function encodeHtmlEntities(text) {
   };
   const re = new RegExp(`[${Object.keys(entities).join('')}]`, 'g');
   if (text && !text.replace) {
-    console.log('enchtml', text, typeof text, text.toString());
+    console.log('enchtml', text, typeof text, JSON.stringify(text), text.toString());
   }
   return text && text.replace(re, (m) => entities[m]);
 }
