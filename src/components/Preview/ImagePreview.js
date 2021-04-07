@@ -8,9 +8,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Badge } from 'react-bootstrap';
-import Trigger from './Trigger';
 import { posAbsoluteFullCss, centerCss, coverImageCss } from '../../utils/css';
-import { fileType, getTypeIcon } from '../../utils/files';
+import { getTypeIcon } from '../../utils/files';
 import Icon from '../Icon';
 import Img from '../Img';
 
@@ -71,15 +70,16 @@ const FileName = styled.div`
   white-space: nowrap;
 `;
 
-class ImagePreview extends React.PureComponent {
-  renderPreview() {
-    const {
-      file, fullview, overlay, noRetry,
-    } = this.props;
+function ImagePreview(props) {
+  const {
+    file, fullview, overlay, noRetry, onClick, disabled,
+  } = props;
+
+  function renderPreview() {
     if (file.preview === undefined) {
       return (
-        <div>
-          { fileType(file) !== 'video' && <FileIcon className={getTypeIcon(file)} />}
+        <div className="pt-3">
+          <FileIcon className={getTypeIcon(file)} />
           <FileName title={file.fileName}>{file.fileName}</FileName>
         </div>
       );
@@ -94,34 +94,29 @@ class ImagePreview extends React.PureComponent {
       );
   }
 
-  renderWithIcon() {
-    const { file } = this.props;
-    if (file.type === 'image') {
-      return this.renderPreview();
-    }
+  function renderWithIcon() {
     return (
-      <>
-        {this.renderPreview()}
-        <IconOverlay processing={file.processing}>
-          <div>
-            <FileIcon className="ss-play" />
-          </div>
-        </IconOverlay>
-      </>
+      <React.Fragment>
+        {renderPreview()}
+        {file.preview && file.type === 'video' && (
+          <IconOverlay>
+            <div>
+              <FileIcon className="ss-play" />
+            </div>
+          </IconOverlay>
+        )}
+      </React.Fragment>
     );
   }
 
-  render() {
-    const { onClick, disabled } = this.props;
-    if (!onClick || disabled) {
-      return this.renderWithIcon();
-    }
-    return (
-      <Trigger onClick={onClick}>
-        {this.renderWithIcon()}
-      </Trigger>
-    );
+  if (!onClick || disabled) {
+    return renderWithIcon();
   }
+  return (
+    <button onClick={onClick}>
+      {renderWithIcon()}
+    </button>
+  );
 }
 
 ImagePreview.propTypes = {
