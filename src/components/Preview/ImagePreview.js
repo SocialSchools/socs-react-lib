@@ -96,7 +96,7 @@ function ImagePreview(props) {
 
   function renderWithIcon() {
     return (
-      <React.Fragment>
+      <>
         {renderPreview()}
         {file.preview && file.type === 'video' && (
           <IconOverlay>
@@ -105,7 +105,7 @@ function ImagePreview(props) {
             </div>
           </IconOverlay>
         )}
-      </React.Fragment>
+      </>
     );
   }
 
@@ -113,7 +113,7 @@ function ImagePreview(props) {
     return renderWithIcon();
   }
   return (
-    <button onClick={onClick}>
+    <button type="button" onClick={onClick}>
       {renderWithIcon()}
     </button>
   );
