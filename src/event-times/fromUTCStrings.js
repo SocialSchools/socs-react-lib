@@ -22,11 +22,11 @@ function fromUTCStrings(time, forceAllDay) {
   let allDay = forceAllDay || time.allDay;
   if (allDay === undefined) {
     const midnight = 'T00:00:00Z';
-    allDay = time.start.endsWith(midnight) && time.end.endsWith(midnight);
+    allDay = time.start.endsWith(midnight) && (!time.end || time.end.endsWith(midnight));
   }
   const start = stringToTime(time.start, allDay);
-  let end = stringToTime(time.end, allDay);
-  if (allDay) {
+  let end = time.end && stringToTime(time.end, allDay);
+  if (end && allDay) {
     end = subDays(end, 1);
   }
   return {
