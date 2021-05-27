@@ -1,6 +1,6 @@
 {
   "name": "socs-react-lib",
-  "version": "1.0.68",
+  "version": "1.0.69",
   "description": "Handle event times for Social Schools",
   "main": "build/index.js",
   "scripts": {
