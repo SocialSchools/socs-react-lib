@@ -15,7 +15,7 @@ import ReactSelect from './SelectFix';
 
 export const reactSelectMixin = css`
   .rs__control.rs__control {
-    border: 1px solid #dddddd;
+    border: 1px solid ${(p) => p.theme.tableBorderColor};
     border-radius: 16px;
     min-height: 34px;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
