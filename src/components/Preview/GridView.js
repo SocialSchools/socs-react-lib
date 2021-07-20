@@ -10,6 +10,7 @@ import styled from 'styled-components';
 import ImageGrid from './ImageGrid';
 
 const WrapOne = styled.div`
+  break-inside: avoid;
   position: relative;
   border-radius: ${(p) => p.radius};
   overflow: hidden;   // ensures max-width works in IE
@@ -17,6 +18,7 @@ const WrapOne = styled.div`
 `;
 
 const Inline = styled(ImageGrid)`
+  break-inside: avoid;
   & > * {
     flex-basis: calc(99.99% / ${(p) => p.count});
   }

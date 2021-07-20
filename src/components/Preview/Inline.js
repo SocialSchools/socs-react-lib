@@ -10,6 +10,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   width: 100%;
+  break-inside: avoid;
   @media screen {
     overflow-x: auto;
   }
