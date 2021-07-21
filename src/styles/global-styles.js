@@ -177,18 +177,12 @@ export const globalStyleMixin = css`
     html {
       width: 100%;
     }
-    .btn.btn:not(.btn-link), .btn-group.btn-group, .close.close {
-      display: none;
-    }
     body.modal-open {
       height: auto;
       overflow: initial !important;
       & > :not([role=dialog]) {
         display: none;
       }
-    }
-    a[href].no-print-href:after { 
-      content: none !important; 
     }
   }
   ${iosZoom};
