@@ -40,7 +40,7 @@ function ListDocuments(props) {
   return (
     <ListGroup>
       {files.map((file) => (
-        <ListGroup.Item action={!onRemove} key={file.id} href={onRemove ? '' : file.fullPath} className="px-1">
+        <ListGroup.Item action={!onRemove} key={file.id} href={onRemove ? '' : file.fullPath} className="px-1 no-print-href">
           <LinkWrapper>
             <Icon className={`text-primary ${getTypeIcon(file)}`} />
             <span>{file.fileName}</span>
