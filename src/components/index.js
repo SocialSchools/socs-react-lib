@@ -9,5 +9,6 @@ export { default as ExpandIcon } from './ExpandIcon';
 export { default as RoundBadge } from './Badge/RoundBadge';
 export { default as UserText, userTextHeadersCss } from './UserText';
 export { default as ReactSelect } from './ReactSelect';
+export { components as reactSelectComponents } from 'react-select';
 export { default as Badge } from './Badge';
 export { setLibLocale } from './LocaleProvider';
