@@ -84,11 +84,12 @@ function ImagePreview(props) {
         </div>
       );
     }
+    const retry = noRetry ? 0 : undefined;
     return fullview
-      ? <Img src={file.fullview} alt={file.fileName} retry={noRetry ? 0 : undefined} />
+      ? <Img src={file.fullview} alt={file.fileName} retry={retry} />
       : (
         <ImgWrapper>
-          <Img src={file.preview} alt={file.fileName} />
+          <Img src={file.preview} alt={file.fileName} retry={retry} />
           {overlay && <TextOverlay><Badge>{overlay}</Badge></TextOverlay>}
         </ImgWrapper>
       );
