@@ -7,7 +7,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import marked from 'marked';
+import { marked } from 'marked';
 import createDOMPurify from 'dompurify';
 import { coverImageCss, posAbsoluteFullCss } from '../../utils/css';
 import videoIcon from './images/playvideo2.svg';
@@ -23,6 +23,7 @@ import PermissionModal from './PermissionModal';
 import { mergeClassList } from '../../utils';
 
 const DOMPurify = createDOMPurify(window);
+marked.setOptions({ breaks: true });
 
 const bgPad = '3px';
 
@@ -92,18 +93,22 @@ const Wrapper = styled.span`
 `;
 
 function UserText(props) {
-  const { children, inline, className, options = {} } = props;
+  const {
+    children, inline, className, markText,
+  } = props;
   if (!children) {
     return null;
   }
-  marked.setOptions({ ...options, breaks: true });
   const [permission, setPermission] = useCookie('videoOption', STATUS_BUTTON);
   const initialStatus = window.location.protocol.startsWith('http') ? permission : STATUS_EMBED;
   const [videoStatus, setVideoStatus] = useState(initialStatus);
   const [videoLink, setVideoLink] = useState(false);
   const converter = inline ? marked.parseInline : marked;
-  const html = converter(encodeHtmlEntities(children));
-  const userlinks = html.replace(/<a /g, '<a rel="ugc" ');
+  let html = converter(encodeHtmlEntities(children));
+  html = html.replace(/<a /g, '<a rel="ugc" ');
+  if (markText) {
+    html = html.replace(new RegExp(markText, 'gi'), '<mark>$&</mark>');
+  }
   const askPermission = (ev) => {
     // Only div.video-overlay on status=STATUS_BUTTON has data-link attribute set
     if (videoStatus === STATUS_BUTTON) {
@@ -123,7 +128,7 @@ function UserText(props) {
   };
   const fullClassList = mergeClassList(['user-text', className]);
   try {
-    const clean = DOMPurify.sanitize(userlinks);
+    const clean = DOMPurify.sanitize(html);
     const withEmbed = inline ? clean : embedVideo(clean, videoStatus);
     return (
       <>
@@ -141,7 +146,7 @@ function UserText(props) {
     return (
       <Wrapper className={fullClassList} inline={inline}>
         <Emojify>
-          {userlinks}
+          {html}
         </Emojify>
       </Wrapper>
     );
@@ -152,7 +157,7 @@ UserText.propTypes = {
   className: PropTypes.string,
   children: PropTypes.string,
   inline: PropTypes.bool,
-  options: PropTypes.object,
+  markText: PropTypes.string,
 };
 
 export default UserText;
