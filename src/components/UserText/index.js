@@ -1,3 +1,4 @@
+/* eslint-disable no-bitwise */
 /**
  *
  * UserText
@@ -92,6 +93,19 @@ const Wrapper = styled.span`
   }
 `;
 
+/**
+ * Replace text only outside tags
+ * @param {*} text
+ * @param {*} markText
+ * @returns
+ */
+function replaceText(text, markText) {
+  const re = new RegExp(markText, 'gi');
+  const replace = (str) => str.replace(re, `<mark>${markText}</mark>`);
+  const parts = text.split(/[<>]/).map((token, idx) => ((idx & 1) ? `${token}>` : `${replace(token)}<`));
+  return (parts.length & 1) ? parts.join('').slice(0, -1) : parts.join('');
+}
+
 function UserText(props) {
   const {
     children, inline, className, markText,
@@ -106,8 +120,8 @@ function UserText(props) {
   const converter = inline ? marked.parseInline : marked;
   let html = converter(encodeHtmlEntities(children));
   html = html.replace(/<a /g, '<a rel="ugc" ');
-  if (markText) {
-    html = html.replace(new RegExp(markText, 'gi'), '<mark>$&</mark>');
+  if (html && markText) {
+    html = replaceText(html, markText);
   }
   const askPermission = (ev) => {
     // Only div.video-overlay on status=STATUS_BUTTON has data-link attribute set
