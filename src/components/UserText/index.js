@@ -92,11 +92,11 @@ const Wrapper = styled.span`
 `;
 
 function UserText(props) {
-  const { children, inline, className } = props;
+  const { children, inline, className, options = {} } = props;
   if (!children) {
     return null;
   }
-  marked.setOptions({ breaks: true });
+  marked.setOptions({ ...options, breaks: true });
   const [permission, setPermission] = useCookie('videoOption', STATUS_BUTTON);
   const initialStatus = window.location.protocol.startsWith('http') ? permission : STATUS_EMBED;
   const [videoStatus, setVideoStatus] = useState(initialStatus);
@@ -152,6 +152,7 @@ UserText.propTypes = {
   className: PropTypes.string,
   children: PropTypes.string,
   inline: PropTypes.bool,
+  options: PropTypes.object,
 };
 
 export default UserText;
